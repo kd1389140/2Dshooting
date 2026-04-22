@@ -8,8 +8,6 @@ private:
 	C_Player m_player;
 	KdTexture m_playerTex;
 
-	int test;
-
 public:
 
 	// ‰Šúİ’è
