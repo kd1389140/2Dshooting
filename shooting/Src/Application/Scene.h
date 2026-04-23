@@ -1,6 +1,7 @@
 #pragma once
 #include "Player/Player.h"
 #include "Enemy/Enemy.h"
+#include "Bullet/PlayerBullet/PlayerBullet.h"
 
 class Scene
 {
@@ -11,6 +12,9 @@ private:
 
 	C_Enemy m_enemy;
 	KdTexture m_enemyTex;
+
+	C_PlayerBullet m_playerBullet;
+	KdTexture m_playerBulletTex;
 
 public:
 
@@ -31,6 +35,7 @@ public:
 
 	C_Player* GetPlayer() { return &m_player; }
 	C_Enemy* GetEnemy() { return &m_enemy; }
+	C_PlayerBullet* GetPlayerBullet() { return &m_playerBullet; }
 
 private:
 
