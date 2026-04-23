@@ -16,22 +16,43 @@ void C_Player::Update()
 	//ƒL[‚ÅˆÚ“®
 	if (GetAsyncKeyState('D') & 0x8000)
 	{
-		m_move.x = 1.0f;
+		m_move.x = 10.0f;
 	}
 
 	if (GetAsyncKeyState('A') & 0x8000)
 	{
-		m_move.x = -1.0f;
+		m_move.x = -10.0f;
 	}
 
 	if (GetAsyncKeyState('W') & 0x8000)
 	{
-		m_move.y = 1.0f;
+		m_move.y = 10.0f;
 	}
 
 	if (GetAsyncKeyState('S') & 0x8000)
 	{
-		m_move.y = -1.0f;
+		m_move.y = -10.0f;
+	}
+
+	//‰æ–Ê“àŒÅ’èˆ—
+	if (m_pos.x > 640 - 32)
+	{
+		m_pos.x = 640 - 32;
+	}
+
+	if (m_pos.x < -640 + 32)
+	{
+		m_pos.x = -640 + 32;
+	}
+
+	if (m_pos.y > 360 - 32)
+	{
+		m_pos.y = 360 - 32;
+	}
+
+	if (m_pos.y < -360 + 32)
+	{
+		m_pos.y = -360 + 32;
 	}
 
 	m_scaleMat = Math::Matrix::CreateScale(1.0f, 1.0f, 1.0f);
