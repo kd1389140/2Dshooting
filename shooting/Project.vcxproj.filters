@@ -46,6 +46,9 @@
     <Filter Include="Src\Application\Player">
       <UniqueIdentifier>{fffd550d-aa17-4920-b991-a29caf8d0cc6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Enemy">
+      <UniqueIdentifier>{47629a88-72b0-4a94-ae71-84451a0f00f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -144,6 +147,9 @@
     <ClInclude Include="Src\Application\Player\Player.h">
       <Filter>Src\Application\Player</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Enemy\Enemy.h">
+      <Filter>Src\Application\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -211,6 +217,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Player\Player.cpp">
       <Filter>Src\Application\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Enemy\Enemy.cpp">
+      <Filter>Src\Application\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
