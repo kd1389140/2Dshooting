@@ -13,6 +13,28 @@ void C_PlayerBullet::Update()
 
 	m_move = { 0,0 };
 
+	//画面内固定処理
+
+	//if (m_pos.x > 640 - 8)
+	//{
+	//	m_alive = false;
+	//}
+
+	//if (m_pos.x < -640 + 8)
+	//{
+	//	m_alive = false;
+	//}
+
+	//if (m_pos.y > 360 - 8)
+	//{
+	//	m_alive = false;
+	//}
+
+	/*if (m_pos.y < -360 + 8)
+	{
+		m_alive = false;
+	}*/
+
 	m_scaleMat = Math::Matrix::CreateScale(1.0f, 1.0f, 1.0f);
 	m_transMat = Math::Matrix::CreateTranslation(m_pos.x, m_pos.y, 0);
 	m_mat = m_scaleMat * m_transMat;

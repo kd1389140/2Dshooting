@@ -34,6 +34,11 @@ void C_Player::Update()
 		m_move.y = -10.0f;
 	}
 
+	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+	{
+		m_move.y = -10.0f;
+	}
+
 	//‰æ–Ê“àŒÅ’èˆ—
 	if (m_pos.x > 640 - 32)
 	{
