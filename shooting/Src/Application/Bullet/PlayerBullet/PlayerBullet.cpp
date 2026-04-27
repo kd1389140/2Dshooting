@@ -4,36 +4,31 @@ void C_PlayerBullet::Init()
 {
 	m_pos = { 0,0 };
 	m_move = { 0,0 };
-	m_alive = true;
+	m_flg = true;
+	m_shootFlg = false;
 }
 
 void C_PlayerBullet::Update()
 {
-	m_pos += m_move;
-
-	m_move = { 0,0 };
-
-	//画面内固定処理
-
-	//if (m_pos.x > 640 - 8)
-	//{
-	//	m_alive = false;
-	//}
-
-	//if (m_pos.x < -640 + 8)
-	//{
-	//	m_alive = false;
-	//}
-
-	//if (m_pos.y > 360 - 8)
-	//{
-	//	m_alive = false;
-	//}
-
-	/*if (m_pos.y < -360 + 8)
+	//if (m_flg)
 	{
-		m_alive = false;
-	}*/
+
+		m_pos += m_move;
+
+		//m_move = { 0,0 };
+
+		if (m_shootFlg)
+		{
+			m_move.y = 10.0f;
+		}
+
+		//画面外に出たら消去
+		if (m_pos.y > 360 - 8)
+		{
+			m_flg = false;
+			Init();
+		}
+	}
 
 	m_scaleMat = Math::Matrix::CreateScale(1.0f, 1.0f, 1.0f);
 	m_transMat = Math::Matrix::CreateTranslation(m_pos.x, m_pos.y, 0);

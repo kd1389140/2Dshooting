@@ -2,6 +2,8 @@
 
 class Scene;
 
+class C_PlayerBullet;
+
 class C_Player
 {
 public:

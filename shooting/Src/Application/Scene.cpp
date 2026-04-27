@@ -3,9 +3,9 @@
 
 void Scene::Draw2D()
 {
-	m_player.Draw();
-	m_enemy.Draw();
 	m_playerBullet.Draw();
+	m_enemy.Draw();
+	m_player.Draw();
 
 	// •¶Žš—ñ•\Ž¦
 	//SHADER.m_spriteShader.DrawString(0, 0, "Hello World", Math::Vector4(1, 1, 0, 1));
@@ -13,24 +13,24 @@ void Scene::Draw2D()
 
 void Scene::Update()
 {
-	m_player.Update();
-	m_enemy.Update();
 	m_playerBullet.Update();
+	m_enemy.Update();
+	m_player.Update();
 }
 
 void Scene::Init()
 {
-	m_playerTex.Load("Texture/player.png");
+	m_playerBulletTex.Load("Texture/Bullet.png");
 	m_player.Init();
-	m_player.SetTex(&m_playerTex);
+	m_playerBullet.SetTex(&m_playerBulletTex);
 
 	m_enemyTex.Load("Texture/enemy.png");
 	m_enemy.Init();
 	m_enemy.SetTex(&m_enemyTex);
 
-	m_playerBulletTex.Load("Texture/Bullet.png");
+	m_playerTex.Load("Texture/player.png");
 	m_player.Init();
-	m_playerBullet.SetTex(&m_playerBulletTex);
+	m_player.SetTex(&m_playerTex);
 }
 
 void Scene::Release()

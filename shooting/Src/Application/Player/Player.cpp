@@ -36,7 +36,8 @@ void C_Player::Update()
 
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{
-		m_move.y = -10.0f;
+		C_PlayerBullet* playerBullet = SCENE.GetPlayerBullet();
+		playerBullet->SetShoot(true);
 	}
 
 	//‰æ–Ê“àŒÅ’èˆ—
