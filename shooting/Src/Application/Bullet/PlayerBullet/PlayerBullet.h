@@ -11,10 +11,13 @@ public:
 	void Init();
 	void Update();
 	void Draw();
+	void Reset();
 
 	void SetTex(KdTexture* tex) { m_tex = tex; }
 
 	void SetShoot(bool flg) { m_shootFlg = flg; }
+
+	Math::Vector2 GetPos() { return m_pos; }
 
 private:
 
