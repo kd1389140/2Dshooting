@@ -16,6 +16,8 @@ public:
 
 	void SetTex(KdTexture* tex) { m_tex = tex; }
 
+	Math::Vector2 GetPos() { return m_pos; }
+
 private:
 
 	Scene* m_owner;

@@ -11,7 +11,6 @@ public:
 	void Init();
 	void Update();
 	void Draw();
-	void Reset();
 
 	void SetTex(KdTexture* tex) { m_tex = tex; }
 
