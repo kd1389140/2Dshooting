@@ -9,6 +9,8 @@ void C_Player::Init()
 
 void C_Player::Update()
 {
+	if (!m_alive)return;
+
 	m_pos += m_move;
 
 	m_move = {0,0};
@@ -34,6 +36,14 @@ void C_Player::Update()
 		m_move.y = -10.0f;
 	}
 
+	//プレイヤー爆発確認用処理
+	if (GetAsyncKeyState('Q') & 0x8000)
+	{
+		m_alive = false;
+		SCENE.GetExplosion()->SetFlg(true);
+	}
+
+	//スペースキーで弾を発射
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{
 		C_PlayerBullet* playerBullet = SCENE.GetPlayerBullet();
@@ -68,7 +78,7 @@ void C_Player::Update()
 
 void C_Player::Draw()
 {
-	//if (!m_alive)return;
+	if (!m_alive)return;
 
 	SHADER.m_spriteShader.SetMatrix(m_mat);
 	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 64, 64), 1.0f);

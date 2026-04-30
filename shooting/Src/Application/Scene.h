@@ -2,6 +2,7 @@
 #include "Player/Player.h"
 #include "Enemy/Enemy.h"
 #include "Bullet/PlayerBullet/PlayerBullet.h"
+#include "Effect/Explosion.h"
 
 class Scene
 {
@@ -15,6 +16,9 @@ private:
 
 	C_PlayerBullet m_playerBullet;
 	KdTexture m_playerBulletTex;
+
+	C_Explosion m_explosion;
+	KdTexture m_explosionTex;
 
 public:
 
@@ -36,6 +40,7 @@ public:
 	C_Player* GetPlayer() { return &m_player; }
 	C_Enemy* GetEnemy() { return &m_enemy; }
 	C_PlayerBullet* GetPlayerBullet() { return &m_playerBullet; }
+	C_Explosion* GetExplosion() { return &m_explosion; }
 
 private:
 
