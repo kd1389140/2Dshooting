@@ -2,7 +2,6 @@
 
 void C_Explosion::Init()
 {
-	m_pos = {0,0};
 	m_scale = { 2, 2 };
 	m_AnimeCount = 16;
 	m_explosionFlg = false;

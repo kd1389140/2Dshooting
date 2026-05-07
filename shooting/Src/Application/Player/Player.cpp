@@ -2,8 +2,6 @@
 
 void C_Player::Init()
 {
-	m_pos = { 0,0 };
-	m_move = { 0,0 };
 	m_alive = true;
 }
 

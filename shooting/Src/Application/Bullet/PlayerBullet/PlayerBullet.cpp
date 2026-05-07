@@ -3,7 +3,6 @@
 void C_PlayerBullet::Init()
 {
 	m_pos = SCENE.GetPlayer()->GetPos();
-	m_move = { 0,0 };
 	m_flg = true;
 	m_shootFlg = false;
 }
