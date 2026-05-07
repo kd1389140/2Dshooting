@@ -39,6 +39,10 @@ void C_Explosion::Update()
 			m_AnimeCount += 0.3f;
 			if (m_AnimeCount > 20)
 			{
+				if (SCENE.GetPlayer()->GetAlive() == false)
+				{
+					SCENE.GetResult()->SetFlg(true);
+				}
 				m_AnimeFlg = false;
 				m_explosionFlg = false;
 				m_endEffectFlg = true;

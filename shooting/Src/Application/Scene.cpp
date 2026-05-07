@@ -9,6 +9,7 @@ void Scene::Draw2D()
 	m_player.Draw();
 	m_explosion.Draw();
 	m_title.Draw();
+	m_result.Draw();
 
 	// •¶Žš—ñ•\Ž¦
 	//SHADER.m_spriteShader.DrawString(0, 0, "Hello World", Math::Vector4(1, 1, 0, 1));
@@ -22,6 +23,7 @@ void Scene::Update()
 	m_player.Update();
 	m_explosion.Update();
 	m_title.Update();
+	m_result.Update();
 }
 
 void Scene::Init()
@@ -49,6 +51,10 @@ void Scene::Init()
 	m_titleTex.Load("Texture/Title.png");
 	m_title.Init();
 	m_title.SetTex(&m_titleTex);
+
+	m_resultTex.Load("Texture/back.png");
+	m_result.Init();
+	m_result.SetTex(&m_resultTex);
 }
 
 void Scene::Release()
@@ -59,6 +65,7 @@ void Scene::Release()
 	m_enemyBulletTex.Release();
 	m_explosionTex.Release();
 	m_titleTex.Release();
+	m_resultTex.Release();
 }
 
 void Scene::ImGuiUpdate()

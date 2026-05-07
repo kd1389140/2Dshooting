@@ -1,17 +1,27 @@
-#include "Title.h"
+#include "../Scene.h"
 
 void C_Title::Init()
 {
 	m_flg = true;
+	m_pressFlg = false;
 }
 
 void C_Title::Update()
 {
 	if (!m_flg)return;
 
-	if (GetAsyncKeyState(VK_RETURN) & 0x8000)
+	if (!(GetAsyncKeyState(VK_RETURN) & 0x8000))
 	{
-		m_flg = false;
+		m_pressFlg = false;
+	}
+
+	//長押しでタイトル画面スキップを出来なくする処理
+	if (!m_pressFlg)
+	{
+		if (GetAsyncKeyState(VK_RETURN) & 0x8000)
+		{
+			m_flg = false;
+		}
 	}
 
 	m_scaleMat = Math::Matrix::CreateScale(1.0f, 1.0f, 1.0f);

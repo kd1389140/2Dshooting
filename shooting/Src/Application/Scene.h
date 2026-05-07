@@ -5,6 +5,7 @@
 #include "Bullet/EnemyBullet/EnemyBullet.h"
 #include "Effect/Explosion.h"
 #include "Title/Title.h"
+#include "Result/Result.h"
 
 class Scene
 {
@@ -27,6 +28,9 @@ private:
 
 	C_Title m_title;
 	KdTexture m_titleTex;
+
+	C_Result m_result;
+	KdTexture m_resultTex;
 
 public:
 
@@ -51,6 +55,7 @@ public:
 	C_EnemyBullet* GetEnemyBullet() { return &m_enemyBullet; }
 	C_Explosion* GetExplosion() { return &m_explosion; }
 	C_Title* GetTitle() { return &m_title; }
+	C_Result* GetResult() { return &m_result; }
 
 private:
 

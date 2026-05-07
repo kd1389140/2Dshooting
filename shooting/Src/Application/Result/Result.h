@@ -2,11 +2,11 @@
 
 class Scene;
 
-class C_Title
+class C_Result
 {
 public:
-	C_Title() {};
-	~C_Title() {};
+	C_Result() {};
+	~C_Result() {};
 
 	void Init();
 	void Update();
@@ -16,7 +16,6 @@ public:
 	void SetTex(KdTexture* tex) { m_tex = tex; }
 
 	void SetFlg(bool flg) { m_flg = flg; }
-	void SetPressFlg(bool flg) { m_pressFlg = flg; }
 
 private:
 
@@ -27,6 +26,5 @@ private:
 	Math::Matrix m_scaleMat;	//拡大行列
 	Math::Matrix m_transMat;	//移動行列
 	Math::Matrix m_mat;			//合成行列
-	bool m_flg;					//存在フラグ
-	bool m_pressFlg;			//キー入力フラグ
+	bool m_flg;				//存在フラグ
 };
