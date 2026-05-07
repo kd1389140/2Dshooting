@@ -3,6 +3,7 @@
 
 void Scene::Draw2D()
 {
+	m_back.Draw();
 	m_playerBullet.Draw();
 	m_enemyBullet.Draw();
 	m_enemy.Draw();
@@ -24,6 +25,7 @@ void Scene::Update()
 	m_explosion.Update();
 	m_title.Update();
 	m_result.Update();
+	m_back.Update();
 }
 
 void Scene::Init()
@@ -52,9 +54,14 @@ void Scene::Init()
 	m_title.Init();
 	m_title.SetTex(&m_titleTex);
 
-	m_resultTex.Load("Texture/back.png");
+	m_resultTex.Load("Texture/result.png");
 	m_result.Init();
 	m_result.SetTex(&m_resultTex);
+
+	m_backTex.Load("Texture/back.png");
+	m_back.Init();
+	m_back.SetTex(&m_backTex);
+	m_back.SetTex2(&m_backTex);
 }
 
 void Scene::Release()
@@ -66,6 +73,7 @@ void Scene::Release()
 	m_explosionTex.Release();
 	m_titleTex.Release();
 	m_resultTex.Release();
+	m_backTex.Release();
 }
 
 void Scene::ImGuiUpdate()

@@ -6,6 +6,7 @@
 #include "Effect/Explosion.h"
 #include "Title/Title.h"
 #include "Result/Result.h"
+#include "Back/Back.h"
 
 class Scene
 {
@@ -32,6 +33,11 @@ private:
 	C_Result m_result;
 	KdTexture m_resultTex;
 
+	C_Back m_back;
+	C_Back m_back2;
+	KdTexture m_backTex;
+	KdTexture m_backTex2;
+
 public:
 
 	// ‰Šúİ’è
@@ -56,6 +62,7 @@ public:
 	C_Explosion* GetExplosion() { return &m_explosion; }
 	C_Title* GetTitle() { return &m_title; }
 	C_Result* GetResult() { return &m_result; }
+	C_Back* GetBack() { return &m_back; }
 
 private:
 
