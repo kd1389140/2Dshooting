@@ -23,6 +23,15 @@ void C_Explosion::Update()
 			m_pos.y = SCENE.GetEnemy()->GetPos().y;
 		}
 
+		if (SCENE.GetEnemy2()->GetAlive() == false)
+		{
+			m_AnimeFlg = true;
+
+			//敵の座標取得
+			m_pos.x = SCENE.GetEnemy2()->GetPos().x;
+			m_pos.y = SCENE.GetEnemy2()->GetPos().y;
+		}
+
 		//プレイヤーが死んでいたら、プレイヤーの座標に爆発エフェクトを出す
 		if (SCENE.GetPlayer()->GetAlive() == false)
 		{

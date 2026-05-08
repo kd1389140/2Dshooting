@@ -24,7 +24,7 @@ void C_EnemyBullet::Update()
 		}
 
 		//画面外に出たら消去
-		if (m_pos.y > 360 - 8)
+		if (m_pos.y < -360 - 8)
 		{
 			Reset();
 		}

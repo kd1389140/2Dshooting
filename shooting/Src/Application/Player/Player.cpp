@@ -38,6 +38,12 @@ void C_Player::Update()
 	//プレイヤー爆発確認用処理
 	if (GetAsyncKeyState('Q') & 0x8000)
 	{
+		m_hp--;
+	}
+
+	//Hp0で死亡
+	if (!m_hp)
+	{
 		m_alive = false;
 		SCENE.GetExplosion()->SetFlg(true);
 	}

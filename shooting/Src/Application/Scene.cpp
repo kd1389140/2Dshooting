@@ -11,6 +11,7 @@ void Scene::Draw2D()
 	
 	m_enemyBullet.Draw();
 	m_enemy.Draw();
+	m_enemy2.Draw();
 	m_player.Draw();
 	m_explosion.Draw();
 	//m_title.Draw();
@@ -30,6 +31,7 @@ void Scene::Update()
 	}
 	m_enemyBullet.Update();
 	m_enemy.Update();
+	m_enemy2.Update();
 	m_player.Update();
 	m_explosion.Update();
 	//m_title.Update();
@@ -40,19 +42,23 @@ void Scene::Update()
 void Scene::Init()
 {
 	m_playerBulletTex.Load("Texture/Bullet.png");
-	m_player.Init();
 	for (int i = 0; i < pBulletNum; ++i)
 	{
+		m_playerBullet[i].Init();
 		m_playerBullet[i].SetTex(&m_playerBulletTex);
 	}
 
 	m_enemyBulletTex.Load("Texture/Bullet.png");
-	m_enemy.Init();
+	m_enemyBullet.Init();
 	m_enemyBullet.SetTex(&m_enemyBulletTex);
 
 	m_enemyTex.Load("Texture/enemy.png");
 	m_enemy.Init();
 	m_enemy.SetTex(&m_enemyTex);
+
+	m_enemy2Tex.Load("Texture/enemy.png");
+	m_enemy2.Init();
+	m_enemy2.SetTex(&m_enemy2Tex);
 
 	m_playerTex.Load("Texture/player.png");
 	m_player.Init();
@@ -80,6 +86,7 @@ void Scene::Release()
 {
 	m_playerTex.Release();
 	m_enemyTex.Release();
+	m_enemy2Tex.Release();
 	m_playerBulletTex.Release();
 	m_enemyBulletTex.Release();
 	m_explosionTex.Release();

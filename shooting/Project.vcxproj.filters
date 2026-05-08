@@ -189,6 +189,9 @@
     <ClInclude Include="Src\Application\Back\Back.h">
       <Filter>Src\Application\Back</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Enemy\Enemy2.h">
+      <Filter>Src\Application\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -277,6 +280,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Back\Back.cpp">
       <Filter>Src\Application\Back</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Enemy\Enemy2.cpp">
+      <Filter>Src\Application\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

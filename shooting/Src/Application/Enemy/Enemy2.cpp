@@ -1,20 +1,20 @@
 #include "../Scene.h"
 
-void C_Enemy::Init()
+void C_Enemy2::Init()
 {
-	m_pos = { 0,300 };
+	m_pos = { -200,300 };
 	m_alive = true;
 }
 
-void C_Enemy::Update()
+void C_Enemy2::Update()
 {
 	if (!m_alive)return;
 
 	for (int i = 0; i < 30 ; ++i)
 	{
-		//敵が弾を打つ処理
-		C_EnemyBullet* enemyBullet = SCENE.GetEnemyBullet();
-		enemyBullet->SetShoot(true);
+		////敵が弾を打つ処理
+		//C_EnemyBullet* enemyBullet = SCENE.GetEnemyBullet();
+		//enemyBullet->SetShoot(true);
 
 		//プレイヤーの弾と敵の当たり判定(当たっていたら死ぬ)
 		m_pBulletpos = SCENE.GetPlayerBullet(i)->GetPos();
@@ -41,7 +41,7 @@ void C_Enemy::Update()
 	m_mat = m_scaleMat * m_transMat;
 }
 
-void C_Enemy::Draw()
+void C_Enemy2::Draw()
 {
 	if (!m_alive)return;
 
@@ -49,8 +49,8 @@ void C_Enemy::Draw()
 	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 64, 64), 1.0f);
 }
 
-void C_Enemy::Reset()
+void C_Enemy2::Reset()
 {
-	m_pos = { 0,300 };
+	m_pos = { -200,300 };
 	m_alive = true;
 }
