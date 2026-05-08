@@ -4,13 +4,17 @@
 void Scene::Draw2D()
 {
 	m_back.Draw();
-	m_playerBullet.Draw();
+	for (int i = 0; i < pBulletNum; ++i)
+	{
+		m_playerBullet[i].Draw();
+	}
+	
 	m_enemyBullet.Draw();
 	m_enemy.Draw();
 	m_player.Draw();
 	m_explosion.Draw();
-	m_title.Draw();
-	m_result.Draw();
+	//m_title.Draw();
+	//m_result.Draw();
 
 	// •¶Žš—ñ•\Ž¦
 	//SHADER.m_spriteShader.DrawString(0, 0, "Hello World", Math::Vector4(1, 1, 0, 1));
@@ -20,13 +24,16 @@ void Scene::Update()
 {
 	ShowCursor(false);
 
-	m_playerBullet.Update();
+	for (int i = 0; i < pBulletNum; ++i)
+	{
+		m_playerBullet[i].Update();
+	}
 	m_enemyBullet.Update();
 	m_enemy.Update();
 	m_player.Update();
 	m_explosion.Update();
-	m_title.Update();
-	m_result.Update();
+	//m_title.Update();
+	//m_result.Update();
 	m_back.Update();
 }
 
@@ -34,7 +41,10 @@ void Scene::Init()
 {
 	m_playerBulletTex.Load("Texture/Bullet.png");
 	m_player.Init();
-	m_playerBullet.SetTex(&m_playerBulletTex);
+	for (int i = 0; i < pBulletNum; ++i)
+	{
+		m_playerBullet[i].SetTex(&m_playerBulletTex);
+	}
 
 	m_enemyBulletTex.Load("Texture/Bullet.png");
 	m_enemy.Init();
@@ -53,11 +63,11 @@ void Scene::Init()
 	m_explosion.SetTex(&m_explosionTex);
 
 	m_titleTex.Load("Texture/Title.png");
-	m_title.Init();
+	//m_title.Init();
 	m_title.SetTex(&m_titleTex);
 
 	m_resultTex.Load("Texture/result.png");
-	m_result.Init();
+	//m_result.Init();
 	m_result.SetTex(&m_resultTex);
 
 	m_backTex.Load("Texture/back.png");

@@ -9,24 +9,30 @@ void C_Enemy::Init()
 void C_Enemy::Update()
 {
 
-	m_pBulletpos = SCENE.GetPlayerBullet()->GetPos();
-
-	if (m_alive)	//敵が生きているか
+	for (int i = 0; i < 30 ; ++i)
 	{
-		float a = m_pos.x - m_pBulletpos.x;	//底辺
-		float b = m_pos.y - m_pBulletpos.y;	//高さ
-		float c = sqrt(a * a + b * b);	//斜辺
+		m_pBulletpos = SCENE.GetPlayerBullet(i)->GetPos();
 
-		if (c < 32 + 8)	//衝突していたら
+		if (m_alive)	//敵が生きているか
 		{
-			//敵を倒す
-			m_alive = false;
-			SCENE.GetExplosion()->SetFlg(true);
+			float a = m_pos.x - m_pBulletpos.x;	//底辺
+			float b = m_pos.y - m_pBulletpos.y;	//高さ
+			float c = sqrt(a * a + b * b);	//斜辺
 
-			//弾を未発射状態に
-			SCENE.GetPlayerBullet()->Reset();
+			if (c < 32 + 8)	//衝突していたら
+			{
+				//敵を倒す
+				m_alive = false;
+				SCENE.GetExplosion()->SetFlg(true);
+
+				//弾を未発射状態に
+				SCENE.GetPlayerBullet(i)->Reset();
+
+				break;
+			}
 		}
 	}
+	
 
 	m_scaleMat = Math::Matrix::CreateScale(1.0f, 1.0f, 1.0f);
 	m_transMat = Math::Matrix::CreateTranslation(m_pos.x, m_pos.y, 0);

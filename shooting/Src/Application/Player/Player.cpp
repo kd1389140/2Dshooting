@@ -25,7 +25,7 @@ void C_Player::Update()
 		m_move.x = -10.0f;
 	}
 
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+	if (GetAsyncKeyState(VK_UP) & 0x8000)
 	{
 		m_move.y = 10.0f;
 	}
@@ -38,22 +38,27 @@ void C_Player::Update()
 	//プレイヤー爆発確認用処理
 	if (GetAsyncKeyState('Q') & 0x8000)
 	{
-		m_hp--;
-		/*m_alive = false;
-		SCENE.GetExplosion()->SetFlg(true);*/
-	}
-
-	if (m_hp == 0)
-	{
 		m_alive = false;
 		SCENE.GetExplosion()->SetFlg(true);
 	}
 
+	
+	//発射までのカウント減少
+	if (--m_shotCnt < 0)m_shotCnt = 0;
+
 	//スペースキーで弾を発射
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{
-		C_PlayerBullet* playerBullet = SCENE.GetPlayerBullet();
-		playerBullet->SetShoot(true);
+		if (m_shotCnt == 0)
+		{
+			static int _cnt = 0;
+			C_PlayerBullet* playerBullet = SCENE.GetPlayerBullet(_cnt);
+			if (++_cnt > 29)_cnt = 0;
+			playerBullet->SetShoot(true);
+
+			//発射間隔設定
+			m_shotCnt = 4;
+		}
 	}
 
 	//画面内固定処理

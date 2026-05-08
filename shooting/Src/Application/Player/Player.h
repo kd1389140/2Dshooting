@@ -31,4 +31,5 @@ private:
 	Math::Matrix m_mat;		//合成行列
 	bool m_alive;			//生存フラグ
 	int m_hp;				//体力
+	int m_shotCnt = 0;
 };

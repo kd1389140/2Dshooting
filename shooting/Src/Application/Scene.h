@@ -18,7 +18,8 @@ private:
 	C_Enemy m_enemy;
 	KdTexture m_enemyTex;
 
-	C_PlayerBullet m_playerBullet;
+	static const int pBulletNum = 30;
+	C_PlayerBullet m_playerBullet[pBulletNum];
 	KdTexture m_playerBulletTex;
 
 	C_EnemyBullet m_enemyBullet;
@@ -57,7 +58,7 @@ public:
 
 	C_Player* GetPlayer() { return &m_player; }
 	C_Enemy* GetEnemy() { return &m_enemy; }
-	C_PlayerBullet* GetPlayerBullet() { return &m_playerBullet; }
+	C_PlayerBullet* GetPlayerBullet(int index) { return &m_playerBullet[index]; }
 	C_EnemyBullet* GetEnemyBullet() { return &m_enemyBullet; }
 	C_Explosion* GetExplosion() { return &m_explosion; }
 	C_Title* GetTitle() { return &m_title; }
