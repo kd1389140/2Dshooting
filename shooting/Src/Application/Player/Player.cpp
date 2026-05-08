@@ -3,6 +3,7 @@
 void C_Player::Init()
 {
 	m_alive = true;
+	m_hp = 3;
 }
 
 void C_Player::Update()
@@ -14,28 +15,35 @@ void C_Player::Update()
 	m_move = {0,0};
 
 	//キーで移動
-	if (GetAsyncKeyState('D') & 0x8000)
+	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
 	{
 		m_move.x = 10.0f;
 	}
 
-	if (GetAsyncKeyState('A') & 0x8000)
+	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
 	{
 		m_move.x = -10.0f;
 	}
 
-	if (GetAsyncKeyState('W') & 0x8000)
+	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
 	{
 		m_move.y = 10.0f;
 	}
 
-	if (GetAsyncKeyState('S') & 0x8000)
+	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
 	{
 		m_move.y = -10.0f;
 	}
 
 	//プレイヤー爆発確認用処理
 	if (GetAsyncKeyState('Q') & 0x8000)
+	{
+		m_hp--;
+		/*m_alive = false;
+		SCENE.GetExplosion()->SetFlg(true);*/
+	}
+
+	if (m_hp == 0)
 	{
 		m_alive = false;
 		SCENE.GetExplosion()->SetFlg(true);

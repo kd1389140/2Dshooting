@@ -18,6 +18,8 @@ void Scene::Draw2D()
 
 void Scene::Update()
 {
+	ShowCursor(false);
+
 	m_playerBullet.Update();
 	m_enemyBullet.Update();
 	m_enemy.Update();
