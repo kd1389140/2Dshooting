@@ -15,6 +15,7 @@ public:
 
 	void SetTex(KdTexture* tex) { m_tex = tex; }
 	void SetFlg(bool flg) { m_explosionFlg = flg; }
+	void SetPos(Math::Vector2 pos) { m_pos = pos; }
 
 	Math::Vector2 GetPos() { return m_pos; }
 
@@ -31,5 +32,6 @@ private:
 	bool m_explosionFlg;//動作フラグ
 	bool m_AnimeFlg;//アニメーション開始フラグ
 	bool m_endEffectFlg;//エフェクト終了通知フラグ
+	bool m_animatedFlg;//アニメーション済み報告フラグ
 	float m_AnimeCount;//アニメーションのカウント
 };

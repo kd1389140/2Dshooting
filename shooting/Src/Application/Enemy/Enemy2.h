@@ -12,6 +12,7 @@ public:
 	void Reset();
 
 	void SetTex(KdTexture* tex) { m_tex = tex; }
+	void SetPos(Math::Vector2 pos) { m_pos = pos; }
 
 	Math::Vector2 GetPos() { return m_pos; }
 	bool GetAlive() { return m_alive; }

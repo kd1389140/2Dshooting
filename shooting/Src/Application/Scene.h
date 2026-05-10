@@ -13,10 +13,12 @@ class Scene
 {
 private:
 
+	int playerHp;
 	C_Player m_player;
 	KdTexture m_playerTex;
 
-	C_Enemy m_enemy;
+	static const int eNum = 5;
+	C_Enemy m_enemy[eNum];
 	KdTexture m_enemyTex;
 
 	C_Enemy2 m_enemy2;
@@ -61,7 +63,7 @@ public:
 	void ImGuiUpdate();
 
 	C_Player* GetPlayer() { return &m_player; }
-	C_Enemy* GetEnemy() { return &m_enemy; }
+	C_Enemy* GetEnemy(int index) { return &m_enemy[index]; }
 	C_Enemy2* GetEnemy2() { return &m_enemy2; }
 	C_PlayerBullet* GetPlayerBullet(int index) { return &m_playerBullet[index]; }
 	C_EnemyBullet* GetEnemyBullet() { return &m_enemyBullet; }

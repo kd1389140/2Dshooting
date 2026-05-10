@@ -7,6 +7,7 @@ void C_Explosion::Init()
 	m_explosionFlg = false;
 	m_AnimeFlg = false;
 	m_endEffectFlg = false;
+	m_animatedFlg = false;
 }
 
 void C_Explosion::Update()
@@ -14,22 +15,32 @@ void C_Explosion::Update()
 	if (m_explosionFlg) 
 	{
 		//敵が死んでいたら、敵の座標に爆発エフェクトを出す
-		if (SCENE.GetEnemy()->GetAlive() == false)
+		for (int i = 0; i < 5; ++i)
 		{
-			m_AnimeFlg = true;
+			/*static int _Ecnt = 5;
+			C_Enemy* enemy = SCENE.GetEnemy(_Ecnt);
+			if (++_Ecnt > 4)_Ecnt = 0;*/
+			if (SCENE.GetEnemy(i)->GetAlive() == false)
+			{
+				//敵の座標取得
+				/*m_pos.x = SCENE.GetEnemy(i)->GetPos().x;
+				m_pos.y = SCENE.GetEnemy(i)->GetPos().y;*/
 
-			//敵の座標取得
-			m_pos.x = SCENE.GetEnemy()->GetPos().x;
-			m_pos.y = SCENE.GetEnemy()->GetPos().y;
+				m_AnimeFlg = true;
+				break;
+			}
 		}
 
-		if (SCENE.GetEnemy2()->GetAlive() == false)
+		//敵2の死亡時の爆発アニメーション用
+		if (SCENE.GetEnemy2()->GetAlive() == false && !m_animatedFlg)
 		{
 			m_AnimeFlg = true;
 
 			//敵の座標取得
 			m_pos.x = SCENE.GetEnemy2()->GetPos().x;
 			m_pos.y = SCENE.GetEnemy2()->GetPos().y;
+
+			m_animatedFlg = true;
 		}
 
 		//プレイヤーが死んでいたら、プレイヤーの座標に爆発エフェクトを出す
@@ -42,13 +53,13 @@ void C_Explosion::Update()
 			m_pos.y = SCENE.GetPlayer()->GetPos().y;
 		}
 
-		//画像切り替え処理
+		//画像のアニメーション処理
 		if (m_AnimeFlg == true)
 		{
 			m_AnimeCount += 0.3f;
 			if (m_AnimeCount > 20)
 			{
-				if (SCENE.GetPlayer()->GetAlive() == false)
+				if (!SCENE.GetPlayer()->GetAlive())
 				{
 					SCENE.GetResult()->SetFlg(true);
 				}

@@ -9,13 +9,12 @@ void C_Enemy2::Init()
 void C_Enemy2::Update()
 {
 	if (!m_alive)return;
+	//敵が弾を打つ処理
+	//C_EnemyBullet* enemyBullet = SCENE.GetEnemyBullet();
+	//enemyBullet->SetShoot(true);
 
 	for (int i = 0; i < 30 ; ++i)
 	{
-		////敵が弾を打つ処理
-		//C_EnemyBullet* enemyBullet = SCENE.GetEnemyBullet();
-		//enemyBullet->SetShoot(true);
-
 		//プレイヤーの弾と敵の当たり判定(当たっていたら死ぬ)
 		m_pBulletpos = SCENE.GetPlayerBullet(i)->GetPos();
 
@@ -26,8 +25,8 @@ void C_Enemy2::Update()
 		if (c < 32 + 8)	//衝突していたら
 		{
 			//敵を倒す
-			m_alive = false;
 			SCENE.GetExplosion()->SetFlg(true);
+			m_alive = false;
 
 			//弾を未発射状態に
 			SCENE.GetPlayerBullet(i)->Reset();

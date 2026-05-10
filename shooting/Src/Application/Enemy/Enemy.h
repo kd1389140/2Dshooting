@@ -12,6 +12,8 @@ public:
 	void Reset();
 
 	void SetTex(KdTexture* tex) { m_tex = tex; }
+	void SetPos(Math::Vector2 pos) { m_pos = pos; }
+	void SetAlive(bool alive) { m_alive = alive; }
 
 	Math::Vector2 GetPos() { return m_pos; }
 	bool GetAlive() { return m_alive; }
@@ -22,7 +24,9 @@ private:
 
 	KdTexture* m_tex;			//テクスチャ
 	Math::Vector2 m_pos;		//座標
+	Math::Vector2 m_move;		//移動量
 	Math::Vector2 m_pBulletpos;	//プレイヤー弾の座標
+	Math::Vector2 m_Ppos;		//プレイヤーの座標
 	Math::Matrix m_scaleMat;	//拡大行列
 	Math::Matrix m_transMat;	//移動行列
 	Math::Matrix m_mat;			//合成行列

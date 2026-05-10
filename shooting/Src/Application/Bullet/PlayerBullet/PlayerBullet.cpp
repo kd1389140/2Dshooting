@@ -11,7 +11,7 @@ void C_PlayerBullet::Update()
 {
 	if (SCENE.GetPlayer()->GetAlive() == false)return;
 	{
-		if (m_shootFlg == false)
+		if (!m_shootFlg)
 		{
 			m_pos = SCENE.GetPlayer()->GetPos();
 		}

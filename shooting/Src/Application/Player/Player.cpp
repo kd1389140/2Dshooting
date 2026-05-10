@@ -42,7 +42,7 @@ void C_Player::Update()
 	}
 
 	//Hp0で死亡
-	if (!m_hp)
+	if (m_hp <= 0)
 	{
 		m_alive = false;
 		SCENE.GetExplosion()->SetFlg(true);
@@ -64,6 +64,33 @@ void C_Player::Update()
 
 			//発射間隔設定
 			m_shotCnt = 4;
+		}
+	}
+
+	//プレイヤーと敵の当たり判定(当たっていたら死ぬ)
+	for (int i = 0; i < 5; ++i)
+	{
+		C_Enemy* enemy = SCENE.GetEnemy(i);
+		m_enemypos = SCENE.GetEnemy(i)->GetPos();
+
+		float a = m_pos.x - m_enemypos.x;	//底辺
+		float b = m_pos.y - m_enemypos.y;	//高さ
+		float c = sqrt(a * a + b * b);		//斜辺
+
+		if (c < 32 + 8)	//衝突していたら
+		{
+			if (SCENE.GetEnemy(i)->GetAlive() == true)
+			{
+				//プレイヤーにダメージ
+				m_hp--;
+
+				//敵を倒す
+				SCENE.GetExplosion()->SetPos(m_pos);
+				SCENE.GetExplosion()->SetFlg(true);
+				SCENE.GetEnemy(i)->SetAlive(false);
+
+				break;
+			}
 		}
 	}
 

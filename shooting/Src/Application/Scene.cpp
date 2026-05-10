@@ -9,52 +9,80 @@ void Scene::Draw2D()
 		m_playerBullet[i].Draw();
 	}
 	
-	m_enemyBullet.Draw();
-	m_enemy.Draw();
+	//m_enemyBullet.Draw();
+
+	for (int i = 0; i < eNum; ++i)
+	{
+		m_enemy[i].Draw();
+	}
+
 	m_enemy2.Draw();
+
 	m_player.Draw();
+
 	m_explosion.Draw();
-	//m_title.Draw();
-	//m_result.Draw();
+
+	m_title.Draw();
+
+	m_result.Draw();
 
 	// •¶Žš—ñ•\Ž¦
-	//SHADER.m_spriteShader.DrawString(0, 0, "Hello World", Math::Vector4(1, 1, 0, 1));
+	/*playerHp = SCENE.GetPlayer()->GetHp();
+	char hp[200];
+	sprintf_s(hp, sizeof(hp), "PlayerHp:%d", playerHp);
+	SHADER.m_spriteShader.DrawString(400, 360, hp, Math::Vector4(1, 1, 1, 1));*/
 }
 
 void Scene::Update()
 {
-	ShowCursor(false);
-
 	for (int i = 0; i < pBulletNum; ++i)
 	{
 		m_playerBullet[i].Update();
 	}
-	m_enemyBullet.Update();
-	m_enemy.Update();
+
+	//m_enemyBullet.Update();
+
+	for (int i = 0; i < eNum; ++i)
+	{
+		m_enemy[i].Update();
+	}
+
 	m_enemy2.Update();
+
 	m_player.Update();
+
 	m_explosion.Update();
-	//m_title.Update();
-	//m_result.Update();
+
+	m_title.Update();
+
+	m_result.Update();
+
 	m_back.Update();
 }
 
 void Scene::Init()
 {
-	m_playerBulletTex.Load("Texture/Bullet.png");
+	srand(time(0));
+
+	ShowCursor(false);
+
+	m_playerBulletTex.Load("Texture/pBullet.png");
 	for (int i = 0; i < pBulletNum; ++i)
 	{
 		m_playerBullet[i].Init();
 		m_playerBullet[i].SetTex(&m_playerBulletTex);
 	}
 
-	m_enemyBulletTex.Load("Texture/Bullet.png");
+	/*m_enemyBulletTex.Load("Texture/Bullet.png");
 	m_enemyBullet.Init();
-	m_enemyBullet.SetTex(&m_enemyBulletTex);
+	m_enemyBullet.SetTex(&m_enemyBulletTex);*/
 
 	m_enemyTex.Load("Texture/enemy.png");
-	m_enemy.Init();
-	m_enemy.SetTex(&m_enemyTex);
+	for (int i = 0; i < eNum; ++i)
+	{
+		m_enemy[i].Init();
+		m_enemy[i].SetTex(&m_enemyTex);
+	}
 
 	m_enemy2Tex.Load("Texture/enemy.png");
 	m_enemy2.Init();
@@ -69,11 +97,11 @@ void Scene::Init()
 	m_explosion.SetTex(&m_explosionTex);
 
 	m_titleTex.Load("Texture/Title.png");
-	//m_title.Init();
+	m_title.Init();
 	m_title.SetTex(&m_titleTex);
 
 	m_resultTex.Load("Texture/result.png");
-	//m_result.Init();
+	m_result.Init();
 	m_result.SetTex(&m_resultTex);
 
 	m_backTex.Load("Texture/back.png");

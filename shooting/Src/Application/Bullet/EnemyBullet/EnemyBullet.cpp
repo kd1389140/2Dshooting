@@ -2,18 +2,24 @@
 
 void C_EnemyBullet::Init()
 {
-	m_pos = SCENE.GetEnemy()->GetPos();
+	static int _cnt = 0;
+	C_Enemy* enemy = SCENE.GetEnemy(_cnt);
+	if (++_cnt > 5)_cnt = 0;
+	m_pos = SCENE.GetEnemy(_cnt)->GetPos();
 	m_flg = true;
 	m_shootFlg = false;
 }
 
 void C_EnemyBullet::Update()
 {
-	if (SCENE.GetEnemy()->GetAlive() == false)return;
+	static int _cnt = 0;
+	C_Enemy* enemy = SCENE.GetEnemy(_cnt);
+	if (++_cnt > 5)_cnt = 0;
+	if (SCENE.GetEnemy(_cnt)->GetAlive() == false)return;
 	{
 		if (m_shootFlg == false)
 		{
-			m_pos = SCENE.GetEnemy()->GetPos();
+			m_pos = SCENE.GetEnemy(_cnt)->GetPos();
 		}
 
 		m_pos += m_move;
@@ -37,7 +43,10 @@ void C_EnemyBullet::Update()
 
 void C_EnemyBullet::Draw()
 {
-	if (SCENE.GetEnemy()->GetAlive() == false)return;
+	static int _cnt = 0;
+	C_Enemy* enemy = SCENE.GetEnemy(_cnt);
+	if (++_cnt > 5)_cnt = 0;
+	if (SCENE.GetEnemy(_cnt)->GetAlive() == false)return;
 	SHADER.m_spriteShader.SetMatrix(m_mat);
 	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(16, 0, 16, 16), 1.0f);
 }
