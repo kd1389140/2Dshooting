@@ -32,6 +32,8 @@ private:
 	bool m_explosionFlg;//動作フラグ
 	bool m_AnimeFlg;//アニメーション開始フラグ
 	bool m_endEffectFlg;//エフェクト終了通知フラグ
-	bool m_animatedFlg;//アニメーション済み報告フラグ
+	bool m_e2AnimeFlg;//アニメーション済み報告フラグ
+	bool m_bossAnimeFlg;//アニメーション済み報告フラグ
+	bool m_bossFlg;		//ボスの爆発であるのかのフラグ
 	float m_AnimeCount;//アニメーションのカウント
 };

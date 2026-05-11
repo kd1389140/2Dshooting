@@ -17,22 +17,22 @@ void C_Player::Update()
 	//キーで移動
 	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
 	{
-		m_move.x = 10.0f;
+		m_move.x = 5.0f;
 	}
 
 	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
 	{
-		m_move.x = -10.0f;
+		m_move.x = -5.0f;
 	}
 
 	if (GetAsyncKeyState(VK_UP) & 0x8000)
 	{
-		m_move.y = 10.0f;
+		m_move.y = 5.0f;
 	}
 
 	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
 	{
-		m_move.y = -10.0f;
+		m_move.y = -5.0f;
 	}
 
 	//プレイヤー爆発確認用処理
@@ -91,6 +91,30 @@ void C_Player::Update()
 
 				break;
 			}
+		}
+	}
+
+	//プレイヤーとボスの当たり判定
+	C_Boss* boss = SCENE.GetBoss();
+	m_enemypos = SCENE.GetBoss()->GetPos();
+
+	float a = m_pos.x - m_enemypos.x;	//底辺
+	float b = m_pos.y - m_enemypos.y;	//高さ
+	float c = sqrt(a * a + b * b);		//斜辺
+
+	if (c < 96 + 8)	//衝突していたら
+	{
+		if (SCENE.GetBoss()->GetAlive() == true)
+		{
+			m_pos = { 0.0 };
+
+			//プレイヤーにダメージ
+			m_hp--;
+
+			//プレイヤーの爆発アニメーション
+			m_hpFlg = true;
+			SCENE.GetExplosion()->SetPos(m_pos);
+			SCENE.GetExplosion()->SetFlg(true);
 		}
 	}
 

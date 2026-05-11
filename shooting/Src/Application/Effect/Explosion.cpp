@@ -7,7 +7,9 @@ void C_Explosion::Init()
 	m_explosionFlg = false;
 	m_AnimeFlg = false;
 	m_endEffectFlg = false;
-	m_animatedFlg = false;
+	m_e2AnimeFlg = false;
+	m_bossAnimeFlg = false;
+	m_bossFlg = false;
 }
 
 void C_Explosion::Update()
@@ -27,12 +29,13 @@ void C_Explosion::Update()
 				m_pos.y = SCENE.GetEnemy(i)->GetPos().y;*/
 
 				m_AnimeFlg = true;
+
 				break;
 			}
 		}
 
 		//敵2の死亡時の爆発アニメーション用
-		if (SCENE.GetEnemy2()->GetAlive() == false && !m_animatedFlg)
+		if (SCENE.GetEnemy2()->GetAlive() == false && !m_e2AnimeFlg)
 		{
 			m_AnimeFlg = true;
 
@@ -40,7 +43,19 @@ void C_Explosion::Update()
 			m_pos.x = SCENE.GetEnemy2()->GetPos().x;
 			m_pos.y = SCENE.GetEnemy2()->GetPos().y;
 
-			m_animatedFlg = true;
+			m_e2AnimeFlg = true;
+		}
+
+		//プレイヤーのダメージ時のエフェクト
+		if (SCENE.GetPlayer()->GetHpFlg() == true)
+		{
+			m_AnimeFlg = true;
+
+			//敵の座標取得
+			m_pos.x = SCENE.GetPlayer()->GetPos().x;
+			m_pos.y = SCENE.GetPlayer()->GetPos().y;
+
+			SCENE.GetPlayer()->SetHpFlg(false);
 		}
 
 		//プレイヤーが死んでいたら、プレイヤーの座標に爆発エフェクトを出す
@@ -53,20 +68,43 @@ void C_Explosion::Update()
 			m_pos.y = SCENE.GetPlayer()->GetPos().y;
 		}
 
+		//ボスの死亡時の爆発アニメーション用
+		if (SCENE.GetBoss()->GetAlive() == false && !m_bossAnimeFlg)
+		{
+			m_AnimeFlg = true;
+
+			//敵の座標取得
+			m_pos.x = SCENE.GetBoss()->GetPos().x;
+			m_pos.y = SCENE.GetBoss()->GetPos().y;
+			m_scale = { 6, 6 };
+
+			m_bossAnimeFlg = true;
+		}
+
 		//画像のアニメーション処理
 		if (m_AnimeFlg == true)
 		{
 			m_AnimeCount += 0.3f;
 			if (m_AnimeCount > 20)
 			{
+				//プレイヤーが死んでいたらゲームオーバー画面へ
 				if (!SCENE.GetPlayer()->GetAlive())
 				{
 					SCENE.GetResult()->SetFlg(true);
 				}
+
+				//ボスが死んでいたらゲームクリア画面へ
+				if (!SCENE.GetBoss()->GetAlive())
+				{
+					SCENE.GetResult()->SetFlg(true);
+				}
+
 				m_AnimeFlg = false;
 				m_explosionFlg = false;
 				m_endEffectFlg = true;
+				m_bossFlg = false;
 				m_AnimeCount = 16;
+				m_scale = { 2, 2 };
 			}
 		}
 

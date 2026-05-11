@@ -163,6 +163,7 @@
     <ClInclude Include="Src\Application\Bullet\EnemyBullet\EnemyBullet.h" />
     <ClInclude Include="Src\Application\Bullet\PlayerBullet\PlayerBullet.h" />
     <ClInclude Include="Src\Application\Effect\Explosion.h" />
+    <ClInclude Include="Src\Application\Enemy\Boss.h" />
     <ClInclude Include="Src\Application\Enemy\Enemy.h" />
     <ClInclude Include="Src\Application\Enemy\Enemy2.h" />
     <ClInclude Include="Src\Application\Player\Player.h" />
@@ -197,6 +198,7 @@
     <ClCompile Include="Src\Application\Bullet\EnemyBullet\EnemyBullet.cpp" />
     <ClCompile Include="Src\Application\Bullet\PlayerBullet\PlayerBullet.cpp" />
     <ClCompile Include="Src\Application\Effect\Explosion.cpp" />
+    <ClCompile Include="Src\Application\Enemy\Boss.cpp" />
     <ClCompile Include="Src\Application\Enemy\Enemy.cpp" />
     <ClCompile Include="Src\Application\Enemy\Enemy2.cpp" />
     <ClCompile Include="Src\Application\Player\Player.cpp" />

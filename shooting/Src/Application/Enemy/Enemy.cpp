@@ -4,6 +4,7 @@ void C_Enemy::Init()
 {
 	m_pos = { static_cast<float>(rand() % (640 + 640 - 32 + 1) - 640 + 32),300 };
 	m_alive = true;
+	Hp = 100;
 }
 
 void C_Enemy::Update()

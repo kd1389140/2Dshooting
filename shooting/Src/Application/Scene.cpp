@@ -18,6 +18,8 @@ void Scene::Draw2D()
 
 	m_enemy2.Draw();
 
+	m_boss.Draw();
+
 	m_player.Draw();
 
 	m_explosion.Draw();
@@ -48,6 +50,8 @@ void Scene::Update()
 	}
 
 	m_enemy2.Update();
+
+	m_boss.Update();
 
 	m_player.Update();
 
@@ -88,6 +92,10 @@ void Scene::Init()
 	m_enemy2.Init();
 	m_enemy2.SetTex(&m_enemy2Tex);
 
+	m_bossTex.Load("Texture/enemy.png");
+	m_boss.Init();
+	m_boss.SetTex(&m_bossTex);
+
 	m_playerTex.Load("Texture/player.png");
 	m_player.Init();
 	m_player.SetTex(&m_playerTex);
@@ -115,6 +123,7 @@ void Scene::Release()
 	m_playerTex.Release();
 	m_enemyTex.Release();
 	m_enemy2Tex.Release();
+	m_bossTex.Release();
 	m_playerBulletTex.Release();
 	m_enemyBulletTex.Release();
 	m_explosionTex.Release();

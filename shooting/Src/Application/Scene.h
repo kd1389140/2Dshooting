@@ -2,6 +2,7 @@
 #include "Player/Player.h"
 #include "Enemy/Enemy.h"
 #include "Enemy/Enemy2.h"
+#include "Enemy/Boss.h"
 #include "Bullet/PlayerBullet/PlayerBullet.h"
 #include "Bullet/EnemyBullet/EnemyBullet.h"
 #include "Effect/Explosion.h"
@@ -23,6 +24,9 @@ private:
 
 	C_Enemy2 m_enemy2;
 	KdTexture m_enemy2Tex;
+
+	C_Boss m_boss;
+	KdTexture m_bossTex;
 
 	static const int pBulletNum = 30;
 	C_PlayerBullet m_playerBullet[pBulletNum];
@@ -65,6 +69,7 @@ public:
 	C_Player* GetPlayer() { return &m_player; }
 	C_Enemy* GetEnemy(int index) { return &m_enemy[index]; }
 	C_Enemy2* GetEnemy2() { return &m_enemy2; }
+	C_Boss* GetBoss() { return &m_boss; }
 	C_PlayerBullet* GetPlayerBullet(int index) { return &m_playerBullet[index]; }
 	C_EnemyBullet* GetEnemyBullet() { return &m_enemyBullet; }
 	C_Explosion* GetExplosion() { return &m_explosion; }
