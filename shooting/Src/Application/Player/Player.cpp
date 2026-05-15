@@ -6,7 +6,7 @@ void C_Player::Init()
 	m_hp = 5;
 	m_maxHp = 5;
 	m_pos = { 0, 0 };
-	m_scale = { 0.5, 0.5 };
+	m_scale = { 0.375, 0.375 };
 	m_nonDieFlg = false;
 }
 

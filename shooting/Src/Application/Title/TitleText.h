@@ -2,11 +2,11 @@
 
 class Scene;
 
-class C_Title
+class C_TitleText
 {
 public:
-	C_Title() {};
-	~C_Title() {};
+	C_TitleText() {};
+	~C_TitleText() {};
 
 	void Init();
 	void Update();
@@ -16,14 +16,13 @@ public:
 	void SetFlg(bool flg) { m_flg = flg; }
 	void SetPressFlg(bool flg) { m_pressFlg = flg; }
 
-	bool GetFlg() { return m_flg; }
-
 private:
 
 	Scene* m_owner;
 
 	KdTexture* m_tex;			//テクスチャ
 	Math::Vector2 m_pos;		//座標
+	Math::Vector2 m_scale;		//拡大率
 	Math::Matrix m_scaleMat;	//拡大行列
 	Math::Matrix m_transMat;	//移動行列
 	Math::Matrix m_mat;			//合成行列

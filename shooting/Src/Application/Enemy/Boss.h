@@ -14,9 +14,11 @@ public:
 	void SetTex(KdTexture* tex) { m_tex = tex; }
 	void SetPos(Math::Vector2 pos) { m_pos = pos; }
 	void SetFlg(bool flg) { m_flg = flg; }
+	void SetNumber(int number) { m_enemyNumber = number; }
 
 	Math::Vector2 GetPos() { return m_pos; }
 	bool GetAlive() { return m_alive; }
+	int GetEnemy() { return m_enemyNumber; }
 
 private:
 
@@ -33,4 +35,5 @@ private:
 	bool m_alive;				//生存フラグ
 	bool m_flg;					//存在フラグ
 	int m_hp;					//体力
+	int m_enemyNumber;			//敵の数
 };

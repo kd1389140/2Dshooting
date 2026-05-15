@@ -7,12 +7,18 @@ void C_Boss::Init()
 	m_flg = false;
 	m_hp = 50;
 	m_scale = { 0.5,0.5 };
+	m_enemyNumber = 0;
 	
 	m_move.x = 2.5f;
 }
 
 void C_Boss::Update()
 {
+	if (m_enemyNumber == 5)
+	{
+		m_flg = true;
+	}
+
 	if (!m_alive)return;
 	if (!m_flg)return;
 	//敵が弾を打つ処理

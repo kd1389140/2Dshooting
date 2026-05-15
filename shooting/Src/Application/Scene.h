@@ -7,6 +7,8 @@
 #include "Bullet/EnemyBullet/EnemyBullet.h"
 #include "Effect/Explosion.h"
 #include "Title/Title.h"
+#include "Title/TitleText.h"
+#include "Title/PressEnter.h"
 #include "Result/Result.h"
 #include "Result/GameOver.h"
 #include "Back/Back.h"
@@ -43,6 +45,12 @@ private:
 
 	C_Title m_title;
 	KdTexture m_titleTex;
+
+	C_TitleText m_titleText;
+	KdTexture m_titleTextTex;
+
+	C_PressEnter m_pressEnter;
+	KdTexture m_pressEnterTex;
 
 	C_Result m_result;
 	KdTexture m_resultTex;
@@ -89,6 +97,8 @@ public:
 	C_EnemyBullet* GetEnemyBullet() { return &m_enemyBullet; }
 	C_Explosion* GetExplosion() { return &m_explosion; }
 	C_Title* GetTitle() { return &m_title; }
+	C_TitleText* GetTitleText() { return &m_titleText; }
+	C_PressEnter* GetPressEnter() { return &m_pressEnter; }
 	C_Result* GetResult() { return &m_result; }
 	C_GameOver* GetGameOver() { return &m_gameover; }
 	C_Back* GetBack() { return &m_back; }

@@ -213,6 +213,12 @@
     <ClInclude Include="Src\Application\Hp\PlayerHpBar\PlayerHpBar.h">
       <Filter>Src\Application\Hp\PlayerHpBar</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Title\PressEnter.h">
+      <Filter>Src\Application\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Application\Title\TitleText.h">
+      <Filter>Src\Application\Title</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -316,6 +322,12 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Hp\PlayerHpBar\PlayerHpBar.cpp">
       <Filter>Src\Application\Hp\PlayerHpBar</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Title\PressEnter.cpp">
+      <Filter>Src\Application\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Title\TitleText.cpp">
+      <Filter>Src\Application\Title</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

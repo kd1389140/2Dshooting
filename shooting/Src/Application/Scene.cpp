@@ -3,7 +3,7 @@
 
 void Scene::Draw2D()
 {
-	//m_back.Draw();
+	m_back.Draw();
 
 	for (int i = 0; i < pBulletNum; ++i)
 	{
@@ -17,7 +17,7 @@ void Scene::Draw2D()
 		m_enemy[i].Draw();
 	}
 
-	m_enemy2.Draw();
+	//m_enemy2.Draw();
 
 	m_boss.Draw();
 
@@ -35,6 +35,10 @@ void Scene::Draw2D()
 
 	m_title.Draw();
 
+	m_titleText.Draw();
+
+	m_pressEnter.Draw();
+
 	// •¶Žš—ñ•\Ž¦
 	/*playerHp = SCENE.GetPlayer()->GetHp();
 	char hp[200];
@@ -44,29 +48,37 @@ void Scene::Draw2D()
 
 void Scene::Update()
 {
-	for (int i = 0; i < pBulletNum; ++i)
+	if (SCENE.GetTitle()->GetFlg() == false)
 	{
-		m_playerBullet[i].Update();
+
+		for (int i = 0; i < pBulletNum; ++i)
+		{
+			m_playerBullet[i].Update();
+		}
+
+		//m_enemyBullet.Update();
+
+		for (int i = 0; i < eNum; ++i)
+		{
+			m_enemy[i].Update();
+		}
+
+		//m_enemy2.Update();
+
+		m_boss.Update();
+
+		m_player.Update();
+
+		m_score.Update();
+
+		m_explosion.Update();
 	}
-
-	//m_enemyBullet.Update();
-
-	for (int i = 0; i < eNum; ++i)
-	{
-		m_enemy[i].Update();
-	}
-
-	m_enemy2.Update();
-
-	m_boss.Update();
-
-	m_player.Update();
-
-	m_score.Update();
-
-	m_explosion.Update();
 
 	m_title.Update();
+
+	m_titleText.Update();
+
+	m_pressEnter.Update();
 
 	m_result.Update();
 
@@ -81,7 +93,7 @@ void Scene::Init()
 {
 	srand(time(0));
 
-	//ShowCursor(false);
+	ShowCursor(false);
 
 	m_playerBulletTex.Load("Texture/pBullet.png");
 	for (int i = 0; i < pBulletNum; ++i)
@@ -101,9 +113,9 @@ void Scene::Init()
 		m_enemy[i].SetTex(&m_enemyTex);
 	}
 
-	m_enemy2Tex.Load("Texture/enemy.png");
+	/*m_enemy2Tex.Load("Texture/enemy2.png");
 	m_enemy2.Init();
-	m_enemy2.SetTex(&m_enemy2Tex);
+	m_enemy2.SetTex(&m_enemy2Tex);*/
 
 	m_bossTex.Load("Texture/BossShip.png");
 	m_boss.Init();
@@ -121,20 +133,28 @@ void Scene::Init()
 	m_title.Init();
 	m_title.SetTex(&m_titleTex);
 
-	m_resultTex.Load("Texture/result.png");
+	m_titleTextTex.Load("Texture/Title3.png");
+	m_titleText.Init();
+	m_titleText.SetTex(&m_titleTextTex);
+
+	m_pressEnterTex.Load("Texture/PressEnter.png");
+	m_pressEnter.Init();
+	m_pressEnter.SetTex(&m_pressEnterTex);
+
+	m_resultTex.Load("Texture/GameClear.png");
 	m_result.Init();
 	m_result.SetTex(&m_resultTex);
 
-	m_gameoverTex.Load("Texture/result.png");
+	m_gameoverTex.Load("Texture/GameOver.png");
 	m_gameover.Init();
-	m_gameover.SetTex(&m_resultTex);
+	m_gameover.SetTex(&m_gameoverTex);
 
-	m_backTex.Load("Texture/back.png");
+	m_backTex.Load("Texture/wave.png");
 	m_back.Init();
 	m_back.SetTex(&m_backTex);
 	m_back.SetTex2(&m_backTex);
 
-	m_scoreTex.Load("Texture/BoldPixelsB.png");
+	m_scoreTex.Load("Texture/BoldPixelsW.png");
 	m_score.Init();
 	m_score.SetTex(&m_scoreTex);
 
@@ -181,6 +201,8 @@ void Scene::Release()
 	m_enemyBulletTex.Release();
 	m_explosionTex.Release();
 	m_titleTex.Release();
+	m_titleTextTex.Release();
+	m_pressEnterTex.Release();
 	m_resultTex.Release();
 	m_gameoverTex.Release();
 	m_backTex.Release();

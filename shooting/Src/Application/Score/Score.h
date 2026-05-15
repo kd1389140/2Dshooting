@@ -14,6 +14,7 @@ public:
 
 	void SetTex(KdTexture* tex) { m_tex = tex; }
 	void SetFlg(bool flg) { m_flg = flg; }
+	void SetPos(Math::Vector2 pos) { m_pos = pos; }
 
 	void SetEnemyFlg(bool flg) { m_enemyFlg = flg; }
 	void SetEnemy2Flg(bool flg) { m_enemy2Flg = flg; }

@@ -15,9 +15,13 @@ void C_GameOver::Update()
 		m_flg = false;
 		//タイトル表示フラグ
 		SCENE.GetTitle()->SetFlg(true);
+		SCENE.GetTitleText()->SetFlg(true);
+		SCENE.GetPressEnter()->SetFlg(true);
 		SCENE.Reset();
 		//長押しでタイトル画面スキップを出来なくするためのフラグセット
 		SCENE.GetTitle()->SetPressFlg(true);
+		SCENE.GetTitleText()->SetPressFlg(true);
+		SCENE.GetPressEnter()->SetPressFlg(true);
 	}
 
 	m_scaleMat = Math::Matrix::CreateScale(1.0f, 1.0f, 1.0f);
@@ -30,5 +34,5 @@ void C_GameOver::Draw()
 	if (!m_flg)return;
 
 	SHADER.m_spriteShader.SetMatrix(m_mat);
-	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 1280, 720), 1.0f);
+	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 891, 96), 1.0f);
 }

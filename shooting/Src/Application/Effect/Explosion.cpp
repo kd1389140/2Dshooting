@@ -37,11 +37,11 @@ void C_Explosion::Update()
 		//敵2の死亡時の爆発アニメーション用
 		if (SCENE.GetEnemy2()->GetAlive() == false && !m_e2AnimeFlg)
 		{
-			m_AnimeFlg = true;
-
 			//敵の座標取得
 			m_pos.x = SCENE.GetEnemy2()->GetPos().x;
 			m_pos.y = SCENE.GetEnemy2()->GetPos().y;
+
+			m_AnimeFlg = true;
 
 			m_e2AnimeFlg = true;
 		}
@@ -105,6 +105,7 @@ void C_Explosion::Update()
 				m_bossFlg = false;
 				m_AnimeCount = 16;
 				m_scale = { 2, 2 };
+
 			}
 		}
 
