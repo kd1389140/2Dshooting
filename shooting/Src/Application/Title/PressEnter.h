@@ -28,4 +28,8 @@ private:
 	Math::Matrix m_mat;			//合成行列
 	bool m_flg;					//存在フラグ
 	bool m_pressFlg;			//キー入力フラグ
+
+	float m_alpha = 1.0f;		//透明度
+	float m_alphaAdd = 0.01f;	//透明度加算
+
 };

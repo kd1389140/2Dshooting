@@ -6,8 +6,9 @@ void C_Player::Init()
 	m_hp = 5;
 	m_maxHp = 5;
 	m_pos = { 0, 0 };
-	m_scale = { 0.375, 0.375 };
+	m_scale = { 0.3, 0.3};
 	m_nonDieFlg = false;
+	m_enemyNumber = 0;
 }
 
 void C_Player::Update()
@@ -46,10 +47,12 @@ void C_Player::Update()
 	}
 
 	//デバック用
+	//無敵キー
 	if (GetAsyncKeyState('P') & 0x8000)
 	{
 		m_nonDieFlg = true;
 	}
+	//無敵解除
 	if(GetAsyncKeyState('O') & 0x8000)
 	{
 		m_nonDieFlg = false;
@@ -104,6 +107,9 @@ void C_Player::Update()
 				SCENE.GetExplosion()->SetPos(m_pos);
 				SCENE.GetExplosion()->SetFlg(true);
 				SCENE.GetEnemy(i)->SetAlive(false);
+				m_enemyNumber = SCENE.GetBoss()->GetEnemy();
+				m_enemyNumber++;
+				SCENE.GetBoss()->SetNumber(m_enemyNumber);
 
 				break;
 			}
@@ -165,5 +171,5 @@ void C_Player::Draw()
 	if (!m_alive)return;
 
 	SHADER.m_spriteShader.SetMatrix(m_mat);
-	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 512, 512), 1.0f);
+	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 256, 256), 1.0f);
 }

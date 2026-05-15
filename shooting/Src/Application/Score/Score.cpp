@@ -12,19 +12,19 @@ void C_Score::Update()
 {
 	if (m_enemyFlg == true)
 	{
-		m_score += 100;
+		m_score += 1000;
 		m_enemyFlg = false;
 	}
 
 	if (m_enemy2Flg == true)
 	{
-		m_score += 200;
+		m_score += 2000;
 		m_enemy2Flg = false;
 	}
 
 	if (m_bossFlg == true)
 	{
-		m_score += 500;
+		m_score += 10000;
 		m_bossFlg = false;
 	}
 

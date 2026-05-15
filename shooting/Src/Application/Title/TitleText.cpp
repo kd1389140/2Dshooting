@@ -4,8 +4,8 @@ void C_TitleText::Init()
 {
 	m_flg = true;
 	m_pressFlg = false;
-	m_pos = { 0, 200 };
-	m_scale = { 1, 1 };
+	m_pos = { 0, 150 };
+	m_scale = { 1.25, 1.25 };
 }
 
 void C_TitleText::Update()
@@ -26,7 +26,7 @@ void C_TitleText::Update()
 		}
 	}
 
-	m_scaleMat = Math::Matrix::CreateScale(1.0f, 1.0f, 1.0f);
+	m_scaleMat = Math::Matrix::CreateScale(m_scale.x, m_scale.y, 1.0f);
 	m_transMat = Math::Matrix::CreateTranslation(m_pos.x, m_pos.y, 0);
 	m_mat = m_scaleMat * m_transMat;
 }

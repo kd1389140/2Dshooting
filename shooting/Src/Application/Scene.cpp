@@ -38,12 +38,6 @@ void Scene::Draw2D()
 	m_titleText.Draw();
 
 	m_pressEnter.Draw();
-
-	// 文字列表示
-	/*playerHp = SCENE.GetPlayer()->GetHp();
-	char hp[200];
-	sprintf_s(hp, sizeof(hp), "PlayerHp:%d", playerHp);
-	SHADER.m_spriteShader.DrawString(400, 360, hp, Math::Vector4(1, 1, 1, 1));*/
 }
 
 void Scene::Update()
@@ -87,6 +81,21 @@ void Scene::Update()
 	m_back.Update();
 
 	m_playerHpBar.Update();
+
+	//if (SCENE.GetTitle()->GetFlg())
+	//{
+	//	if (GetAsyncKeyState(VK_TAB) & 0x8000)
+	//	{
+	//		SCENE.GetTitle()->SetFlg(true);
+	//		SCENE.GetTitleText()->SetFlg(true);
+	//		SCENE.GetPressEnter()->SetFlg(true);
+	//		SCENE.Reset();
+	//		//長押しでタイトル画面スキップを出来なくするためのフラグセット
+	//		SCENE.GetTitle()->SetPressFlg(true);
+	//		SCENE.GetTitleText()->SetPressFlg(true);
+	//		SCENE.GetPressEnter()->SetPressFlg(true);
+	//	}
+	//}
 }
 
 void Scene::Init()
@@ -121,7 +130,7 @@ void Scene::Init()
 	m_boss.Init();
 	m_boss.SetTex(&m_bossTex);
 
-	m_playerTex.Load("Texture/playerShip.png");
+	m_playerTex.Load("Texture/player.png");
 	m_player.Init();
 	m_player.SetTex(&m_playerTex);
 
@@ -137,7 +146,7 @@ void Scene::Init()
 	m_titleText.Init();
 	m_titleText.SetTex(&m_titleTextTex);
 
-	m_pressEnterTex.Load("Texture/PressEnter.png");
+	m_pressEnterTex.Load("Texture/PressEnter2.png");
 	m_pressEnter.Init();
 	m_pressEnter.SetTex(&m_pressEnterTex);
 

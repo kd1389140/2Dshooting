@@ -42,4 +42,5 @@ private:
 	int m_hp;				//体力
 	int m_maxHp;			//最大体力
 	int m_shotCnt = 0;		//弾を打つまでのカウント
+	int m_enemyNumber;
 };

@@ -5,12 +5,25 @@ void C_PressEnter::Init()
 	m_flg = true;
 	m_pressFlg = false;
 	m_pos = { 0, -200 };
-	m_scale = { 2, 2 };
+	m_scale = { 0.75, 0.75 };
 }
 
 void C_PressEnter::Update()
 {
 	if (!m_flg)return;
+
+	m_alpha += m_alphaAdd;
+
+	if (m_alpha > 1.0f)
+	{
+		m_alpha = 1.0f;
+		m_alphaAdd *= -1;
+	}
+	else if (m_alpha < 0.4f)
+	{
+		m_alpha = 0.4f;
+		m_alphaAdd *= -1;
+	}
 
 	if (!(GetAsyncKeyState(VK_RETURN) & 0x8000))
 	{
@@ -36,5 +49,5 @@ void C_PressEnter::Draw()
 	if (!m_flg)return;
 
 	SHADER.m_spriteShader.SetMatrix(m_mat);
-	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 214, 46), 1.0f);
+	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 617, 142), m_alpha);
 }
