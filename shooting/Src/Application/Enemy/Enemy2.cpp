@@ -27,6 +27,8 @@ void C_Enemy2::Update()
 			//敵を倒す
 			SCENE.GetExplosion()->SetFlg(true);
 			m_alive = false;
+			SCENE.GetScore()->SetEnemy2Flg(true);
+
 			SCENE.GetBoss()->SetFlg(true);
 
 			//弾を未発射状態に

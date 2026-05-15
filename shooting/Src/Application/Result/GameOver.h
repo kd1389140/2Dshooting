@@ -2,17 +2,18 @@
 
 class Scene;
 
-class C_Result
+class C_GameOver
 {
 public:
-	C_Result() {};
-	~C_Result() {};
+	C_GameOver() {};
+	~C_GameOver() {};
 
 	void Init();
 	void Update();
 	void Draw();
 
 	void SetTex(KdTexture* tex) { m_tex = tex; }
+
 	void SetFlg(bool flg) { m_flg = flg; }
 
 private:

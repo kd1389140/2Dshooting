@@ -36,8 +36,3 @@ void C_Title::Draw()
 	SHADER.m_spriteShader.SetMatrix(m_mat);
 	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 1280, 720), 1.0f);
 }
-
-void C_Title::Reset()
-{
-	m_flg = true;
-}

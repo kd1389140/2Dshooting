@@ -4,6 +4,8 @@ void C_Player::Init()
 {
 	m_alive = true;
 	m_hp = 3;
+	m_pos = { 0, 0 };
+	m_scale = { 1.0f, 1.0f };
 }
 
 void C_Player::Update()
@@ -139,7 +141,7 @@ void C_Player::Update()
 		m_pos.y = -360 + 32;
 	}
 
-	m_scaleMat = Math::Matrix::CreateScale(1.0f, 1.0f, 1.0f);
+	m_scaleMat = Math::Matrix::CreateScale(m_scale.x, m_scale.y, 1.0f);
 	m_transMat = Math::Matrix::CreateTranslation(m_pos.x, m_pos.y, 0);
 	m_mat = m_scaleMat * m_transMat;
 }

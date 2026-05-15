@@ -90,7 +90,7 @@ void C_Explosion::Update()
 				//プレイヤーが死んでいたらゲームオーバー画面へ
 				if (!SCENE.GetPlayer()->GetAlive())
 				{
-					SCENE.GetResult()->SetFlg(true);
+					SCENE.GetGameOver()->SetFlg(true);
 				}
 
 				//ボスが死んでいたらゲームクリア画面へ

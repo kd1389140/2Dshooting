@@ -8,7 +8,9 @@
 #include "Effect/Explosion.h"
 #include "Title/Title.h"
 #include "Result/Result.h"
+#include "Result/GameOver.h"
 #include "Back/Back.h"
+#include "Score/Score.h"
 
 class Scene
 {
@@ -44,10 +46,16 @@ private:
 	C_Result m_result;
 	KdTexture m_resultTex;
 
+	C_GameOver m_gameover;
+	KdTexture m_gameoverTex;
+
 	C_Back m_back;
 	C_Back m_back2;
 	KdTexture m_backTex;
 	KdTexture m_backTex2;
+
+	C_Score m_score;
+	KdTexture m_scoreTex;
 
 public:
 
@@ -63,6 +71,9 @@ public:
 	// •`‰æˆ—
 	void Draw2D();
 
+	//ƒŠƒZƒbƒgˆ—
+	void Reset();
+
 	// GUIˆ—
 	void ImGuiUpdate();
 
@@ -75,7 +86,9 @@ public:
 	C_Explosion* GetExplosion() { return &m_explosion; }
 	C_Title* GetTitle() { return &m_title; }
 	C_Result* GetResult() { return &m_result; }
+	C_GameOver* GetGameOver() { return &m_gameover; }
 	C_Back* GetBack() { return &m_back; }
+	C_Score* GetScore() { return &m_score; }
 
 private:
 

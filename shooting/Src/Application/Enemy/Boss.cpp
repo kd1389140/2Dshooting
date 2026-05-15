@@ -5,7 +5,7 @@ void C_Boss::Init()
 	m_pos = { 200,300 };
 	m_alive = true;
 	m_flg = false;
-	m_hp = 3;
+	m_hp = 50;
 	m_scale = { 3,3 };
 }
 
@@ -16,6 +16,8 @@ void C_Boss::Update()
 	//敵が弾を打つ処理
 	//C_EnemyBullet* enemyBullet = SCENE.GetEnemyBullet();
 	//enemyBullet->SetShoot(true);
+
+	m_pos += m_move;
 
 	for (int i = 0; i < 30; ++i)
 	{
@@ -28,14 +30,22 @@ void C_Boss::Update()
 
 		if (c < 96 + 8)	//衝突していたら
 		{
-			//ボスを倒す
-			SCENE.GetExplosion()->SetFlg(true);
-			m_alive = false;
+			//hpを減らす
+			m_hp--;
 
 			//弾を未発射状態に
 			SCENE.GetPlayerBullet(i)->Reset();
 
 			break;
+		}
+
+		//hpが0なら
+		if (m_hp == 0)
+		{
+			//ボスを倒す
+			SCENE.GetExplosion()->SetFlg(true);
+			m_alive = false;
+			SCENE.GetScore()->SetBossFlg(true);
 		}
 	}
 

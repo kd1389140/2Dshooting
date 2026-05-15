@@ -11,10 +11,8 @@ public:
 	void Init();
 	void Update();
 	void Draw();
-	void Reset();
 
 	void SetTex(KdTexture* tex) { m_tex = tex; }
-
 	void SetFlg(bool flg) { m_flg = flg; }
 	void SetPressFlg(bool flg) { m_pressFlg = flg; }
 

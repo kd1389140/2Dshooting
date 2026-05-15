@@ -1,11 +1,11 @@
 #include "../Scene.h"
 
-void C_Result::Init()
+void C_GameOver::Init()
 {
 	m_flg = false;
 }
 
-void C_Result::Update()
+void C_GameOver::Update()
 {
 	if (!m_flg)return;
 
@@ -25,7 +25,7 @@ void C_Result::Update()
 	m_mat = m_scaleMat * m_transMat;
 }
 
-void C_Result::Draw()
+void C_GameOver::Draw()
 {
 	if (!m_flg)return;
 

@@ -31,5 +31,5 @@ private:
 	Math::Matrix m_transMat;	//移動行列
 	Math::Matrix m_mat;			//合成行列
 	bool m_alive;				//生存フラグ
-	int Hp;						//体力
+	int m_hp;						//体力
 };

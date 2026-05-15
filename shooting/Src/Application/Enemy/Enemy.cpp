@@ -4,7 +4,7 @@ void C_Enemy::Init()
 {
 	m_pos = { static_cast<float>(rand() % (640 + 640 - 32 + 1) - 640 + 32),300 };
 	m_alive = true;
-	Hp = 100;
+	m_hp = 3;
 }
 
 void C_Enemy::Update()
@@ -39,15 +39,25 @@ void C_Enemy::Update()
 		{
 			if (c < 32 + 8)	//衝突していたら
 			{
-				//敵を倒す
-				SCENE.GetExplosion()->SetPos(m_pos);
-				SCENE.GetExplosion()->SetFlg(true);
-				m_alive = false;
+				//hp減少
+				m_hp--;
 
 				//弾を未発射状態に
 				SCENE.GetPlayerBullet(i)->Reset();
 
 				break;
+			}
+
+			//hpが0になったら
+			if (m_hp == 0)
+			{
+				//敵を倒す
+				SCENE.GetExplosion()->SetPos(m_pos);
+				SCENE.GetExplosion()->SetFlg(true);
+				m_alive = false;
+
+				//スコア追加
+				SCENE.GetScore()->SetEnemyFlg(true);
 			}
 		}
 	}

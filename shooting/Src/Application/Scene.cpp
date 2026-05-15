@@ -4,6 +4,7 @@
 void Scene::Draw2D()
 {
 	m_back.Draw();
+
 	for (int i = 0; i < pBulletNum; ++i)
 	{
 		m_playerBullet[i].Draw();
@@ -24,9 +25,13 @@ void Scene::Draw2D()
 
 	m_explosion.Draw();
 
-	m_title.Draw();
-
 	m_result.Draw();
+
+	m_gameover.Draw();
+
+	m_score.Draw();
+
+	m_title.Draw();
 
 	// •¶Žš—ñ•\Ž¦
 	/*playerHp = SCENE.GetPlayer()->GetHp();
@@ -55,11 +60,15 @@ void Scene::Update()
 
 	m_player.Update();
 
+	m_score.Update();
+
 	m_explosion.Update();
 
 	m_title.Update();
 
 	m_result.Update();
+
+	m_gameover.Update();
 
 	m_back.Update();
 }
@@ -68,7 +77,7 @@ void Scene::Init()
 {
 	srand(time(0));
 
-	ShowCursor(false);
+	//ShowCursor(false);
 
 	m_playerBulletTex.Load("Texture/pBullet.png");
 	for (int i = 0; i < pBulletNum; ++i)
@@ -104,6 +113,7 @@ void Scene::Init()
 	m_explosion.Init();
 	m_explosion.SetTex(&m_explosionTex);
 
+
 	m_titleTex.Load("Texture/Title.png");
 	m_title.Init();
 	m_title.SetTex(&m_titleTex);
@@ -112,10 +122,45 @@ void Scene::Init()
 	m_result.Init();
 	m_result.SetTex(&m_resultTex);
 
+	m_gameoverTex.Load("Texture/result.png");
+	m_gameover.Init();
+	m_gameover.SetTex(&m_resultTex);
+
 	m_backTex.Load("Texture/back.png");
 	m_back.Init();
 	m_back.SetTex(&m_backTex);
 	m_back.SetTex2(&m_backTex);
+
+	m_scoreTex.Load("Texture/BoldPixelsB.png");
+	m_score.Init();
+	m_score.SetTex(&m_scoreTex);
+}
+
+void Scene::Reset()
+{
+	for (int i = 0; i < pBulletNum; ++i)
+	{
+		m_playerBullet[i].Init();
+	}
+
+	//m_enemyBullet.Init();
+
+	for (int i = 0; i < eNum; ++i)
+	{
+		m_enemy[i].Init();
+	}
+
+	m_enemy2.Init();
+	m_boss.Init();
+	m_player.Init();
+	m_explosion.Init();
+	m_score.Init();
+
+	//m_title.Init();
+	//m_result.Init();
+	//m_gameover.Init();
+	//m_back.Init();
+
 }
 
 void Scene::Release()
@@ -129,7 +174,9 @@ void Scene::Release()
 	m_explosionTex.Release();
 	m_titleTex.Release();
 	m_resultTex.Release();
+	m_gameoverTex.Release();
 	m_backTex.Release();
+	m_scoreTex.Release();
 }
 
 void Scene::ImGuiUpdate()
