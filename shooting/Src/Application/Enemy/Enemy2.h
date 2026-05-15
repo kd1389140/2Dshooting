@@ -23,6 +23,7 @@ private:
 
 	KdTexture* m_tex;			//テクスチャ
 	Math::Vector2 m_pos;		//座標
+	Math::Vector2 m_scale;		//拡大率
 	Math::Vector2 m_pBulletpos;	//プレイヤー弾の座標
 	Math::Matrix m_scaleMat;	//拡大行列
 	Math::Matrix m_transMat;	//移動行列

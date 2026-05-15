@@ -57,7 +57,7 @@ void C_Player::Update()
 	{
 		m_nonDieFlg = false;
 	}
-	
+
 	//Hp0で死亡
 	if (m_hp <= 0)
 	{
@@ -120,11 +120,11 @@ void C_Player::Update()
 	C_Boss* boss = SCENE.GetBoss();
 	m_enemypos = SCENE.GetBoss()->GetPos();
 
-	float a = m_pos.x - m_enemypos.x;	//底辺
-	float b = m_pos.y - m_enemypos.y;	//高さ
-	float c = sqrt(a * a + b * b);		//斜辺
+	float Ba = m_pos.x - m_enemypos.x;	//底辺
+	float Bb = m_pos.y - m_enemypos.y;	//高さ
+	float Bc = sqrt(Ba * Ba + Bb * Bb);		//斜辺
 
-	if (c < 96 + 8)	//衝突していたら
+	if (Bc < 96 + 8)	//衝突していたら
 	{
 		if (SCENE.GetBoss()->GetAlive() == true)
 		{
@@ -138,6 +138,30 @@ void C_Player::Update()
 			SCENE.GetExplosion()->SetPos(m_pos);
 			SCENE.GetExplosion()->SetFlg(true);
 		}
+	}
+
+	//ボスの弾とプレイヤーの当たり判定
+	m_eBulletpos = SCENE.GetEnemyBullet()->GetPos();
+
+	float a = m_pos.x - m_eBulletpos.x;	//底辺
+	float b = m_pos.y - m_eBulletpos.y;	//高さ
+	float c = sqrt(a * a + b * b);		//斜辺
+
+	if (m_eBulletpos != m_Bpos)
+	{
+		if (c < 32 + 8)	//衝突していたら
+		{
+			//hp減少
+			m_hp--;
+
+			//弾を未発射状態に
+			SCENE.GetEnemyBullet()->Reset();
+
+			//爆発アニメーション
+			SCENE.GetExplosion()->SetPos(m_pos);
+			SCENE.GetExplosion()->SetFlg(true);
+		}
+
 	}
 
 	//画面内固定処理

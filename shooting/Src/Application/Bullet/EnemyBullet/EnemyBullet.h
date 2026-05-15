@@ -18,6 +18,7 @@ public:
 	void SetShoot(bool flg) { m_shootFlg = flg; }
 
 	Math::Vector2 GetPos() { return m_pos; }
+	bool GetFlg() { return m_flg; }
 
 private:
 

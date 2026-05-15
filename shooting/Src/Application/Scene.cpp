@@ -10,7 +10,7 @@ void Scene::Draw2D()
 		m_playerBullet[i].Draw();
 	}
 	
-	//m_enemyBullet.Draw();
+	m_enemyBullet.Draw();
 
 	for (int i = 0; i < eNum; ++i)
 	{
@@ -50,7 +50,7 @@ void Scene::Update()
 			m_playerBullet[i].Update();
 		}
 
-		//m_enemyBullet.Update();
+		m_enemyBullet.Update();
 
 		for (int i = 0; i < eNum; ++i)
 		{
@@ -106,6 +106,10 @@ void Scene::Init()
 
 	ShowCursor(false);
 
+	m_bossTex.Load("Texture/BossShip.png");
+	m_boss.Init();
+	m_boss.SetTex(&m_bossTex);
+
 	m_playerBulletTex.Load("Texture/pBullet.png");
 	for (int i = 0; i < pBulletNum; ++i)
 	{
@@ -113,9 +117,9 @@ void Scene::Init()
 		m_playerBullet[i].SetTex(&m_playerBulletTex);
 	}
 
-	/*m_enemyBulletTex.Load("Texture/Bullet.png");
+	m_enemyBulletTex.Load("Texture/Bullet.png");
 	m_enemyBullet.Init();
-	m_enemyBullet.SetTex(&m_enemyBulletTex);*/
+	m_enemyBullet.SetTex(&m_enemyBulletTex);
 
 	m_enemyTex.Load("Texture/enemy.png");
 	for (int i = 0; i < eNum; ++i)
@@ -124,13 +128,9 @@ void Scene::Init()
 		m_enemy[i].SetTex(&m_enemyTex);
 	}
 
-	/*m_enemy2Tex.Load("Texture/enemy2.png");
-	m_enemy2.Init();
-	m_enemy2.SetTex(&m_enemy2Tex);*/
-
-	m_bossTex.Load("Texture/BossShip.png");
-	m_boss.Init();
-	m_boss.SetTex(&m_bossTex);
+	//m_enemy2Tex.Load("Texture/missile.png");
+	//m_enemy2.Init();
+	//m_enemy2.SetTex(&m_enemy2Tex);
 
 	m_playerTex.Load("Texture/player.png");
 	m_player.Init();
@@ -181,7 +181,7 @@ void Scene::Reset()
 		m_playerBullet[i].Init();
 	}
 
-	//m_enemyBullet.Init();
+	m_enemyBullet.Init();
 
 	for (int i = 0; i < eNum; ++i)
 	{

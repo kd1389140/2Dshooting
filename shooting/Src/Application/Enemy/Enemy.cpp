@@ -2,7 +2,7 @@
 
 void C_Enemy::Init()
 {
-	m_pos = { static_cast<float>(rand() % (640 + 640 - 32 + 1) - 640 + 32),300 };
+	m_pos = { static_cast<float>(rand() % (640 + 640 + 32 + 1) - 640 - 32),300 };
 	m_alive = true;
 	m_hp = 2;
 	m_scale = { 0.25, 0.25 };
@@ -15,11 +15,6 @@ void C_Enemy::Update()
 {
 	if (m_alive)
 	{
-
-		//敵が弾を打つ処理
-		C_EnemyBullet* enemyBullet = SCENE.GetEnemyBullet();
-		enemyBullet->SetShoot(true);
-
 		m_pos += m_move;
 
 		m_move.y = -3.0f;

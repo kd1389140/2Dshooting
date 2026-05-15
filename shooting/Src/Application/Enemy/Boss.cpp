@@ -21,9 +21,12 @@ void C_Boss::Update()
 
 	if (!m_alive)return;
 	if (!m_flg)return;
+
 	//敵が弾を打つ処理
-	//C_EnemyBullet* enemyBullet = SCENE.GetEnemyBullet();
-	//enemyBullet->SetShoot(true);
+	//if (!SCENE.GetEnemyBullet()->GetShootFlg())
+	{
+		SCENE.GetEnemyBullet()->SetShoot(true);
+	}
 
 	m_pos += m_move;
 

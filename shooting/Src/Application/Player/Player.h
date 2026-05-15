@@ -33,6 +33,8 @@ private:
 	Math::Vector2 m_move;	//移動量
 	Math::Vector2 m_scale;	//拡大率
 	Math::Vector2 m_enemypos;//敵の座標
+	Math::Vector2 m_Bpos;	//ボスの座標
+	Math::Vector2 m_eBulletpos;//敵の弾の座標
 	Math::Matrix m_scaleMat;//拡大行列
 	Math::Matrix m_transMat;//移動行列
 	Math::Matrix m_mat;		//合成行列

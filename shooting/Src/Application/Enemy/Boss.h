@@ -18,6 +18,7 @@ public:
 
 	Math::Vector2 GetPos() { return m_pos; }
 	bool GetAlive() { return m_alive; }
+	bool GetFlg() { return m_flg; }
 	int GetEnemy() { return m_enemyNumber; }
 
 private:

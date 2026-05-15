@@ -40,6 +40,7 @@ void C_PlayerBullet::Update()
 void C_PlayerBullet::Draw()
 {
 	if (SCENE.GetPlayer()->GetAlive() == false)return;
+	if (!m_shootFlg)return;
 	SHADER.m_spriteShader.SetMatrix(m_mat);
 	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 16, 16), 1.0f);
 }

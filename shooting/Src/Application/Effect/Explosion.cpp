@@ -35,16 +35,16 @@ void C_Explosion::Update()
 		}
 
 		//敵2の死亡時の爆発アニメーション用
-		if (SCENE.GetEnemy2()->GetAlive() == false && !m_e2AnimeFlg)
-		{
-			//敵の座標取得
-			m_pos.x = SCENE.GetEnemy2()->GetPos().x;
-			m_pos.y = SCENE.GetEnemy2()->GetPos().y;
+		//if (SCENE.GetEnemy2()->GetAlive() == false && !m_e2AnimeFlg)
+		//{
+		//	//敵の座標取得
+		//	m_pos.x = SCENE.GetEnemy2()->GetPos().x;
+		//	m_pos.y = SCENE.GetEnemy2()->GetPos().y;
 
-			m_AnimeFlg = true;
+		//	m_AnimeFlg = true;
 
-			m_e2AnimeFlg = true;
-		}
+		//	m_e2AnimeFlg = true;
+		//}
 
 		//プレイヤーのダメージ時のエフェクト
 		if (SCENE.GetPlayer()->GetHpFlg() == true)
