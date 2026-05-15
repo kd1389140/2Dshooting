@@ -4,6 +4,7 @@ void C_Title::Init()
 {
 	m_flg = true;
 	m_pressFlg = false;
+	m_scale = { 0.766f, 0.766f };
 }
 
 void C_Title::Update()
@@ -24,7 +25,7 @@ void C_Title::Update()
 		}
 	}
 
-	m_scaleMat = Math::Matrix::CreateScale(1.0f, 1.0f, 1.0f);
+	m_scaleMat = Math::Matrix::CreateScale(m_scale.x, m_scale.x, 1.0f);
 	m_transMat = Math::Matrix::CreateTranslation(m_pos.x, m_pos.y, 0);
 	m_mat = m_scaleMat * m_transMat;
 }
@@ -34,5 +35,5 @@ void C_Title::Draw()
 	if (!m_flg)return;
 
 	SHADER.m_spriteShader.SetMatrix(m_mat);
-	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 1280, 720), 1.0f);
+	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 1672, 941), 1.0f);
 }

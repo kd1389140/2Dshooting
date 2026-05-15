@@ -82,20 +82,22 @@ void Scene::Update()
 
 	m_playerHpBar.Update();
 
-	//if (SCENE.GetTitle()->GetFlg())
-	//{
-	//	if (GetAsyncKeyState(VK_TAB) & 0x8000)
-	//	{
-	//		SCENE.GetTitle()->SetFlg(true);
-	//		SCENE.GetTitleText()->SetFlg(true);
-	//		SCENE.GetPressEnter()->SetFlg(true);
-	//		SCENE.Reset();
-	//		//長押しでタイトル画面スキップを出来なくするためのフラグセット
-	//		SCENE.GetTitle()->SetPressFlg(true);
-	//		SCENE.GetTitleText()->SetPressFlg(true);
-	//		SCENE.GetPressEnter()->SetPressFlg(true);
-	//	}
-	//}
+	//デバックキー
+	//即時タイトル
+	if (!SCENE.GetTitle()->GetFlg())
+	{
+		if (GetAsyncKeyState(VK_TAB) & 0x8000)
+		{
+			SCENE.GetTitle()->SetFlg(true);
+			SCENE.GetTitleText()->SetFlg(true);
+			SCENE.GetPressEnter()->SetFlg(true);
+			SCENE.Reset();
+			//長押しでタイトル画面スキップを出来なくするためのフラグセット
+			SCENE.GetTitle()->SetPressFlg(true);
+			SCENE.GetTitleText()->SetPressFlg(true);
+			SCENE.GetPressEnter()->SetPressFlg(true);
+		}
+	}
 }
 
 void Scene::Init()
@@ -142,11 +144,11 @@ void Scene::Init()
 	m_title.Init();
 	m_title.SetTex(&m_titleTex);
 
-	m_titleTextTex.Load("Texture/Title3.png");
+	m_titleTextTex.Load("Texture/TitleText.png");
 	m_titleText.Init();
 	m_titleText.SetTex(&m_titleTextTex);
 
-	m_pressEnterTex.Load("Texture/PressEnter2.png");
+	m_pressEnterTex.Load("Texture/PressEnter.png");
 	m_pressEnter.Init();
 	m_pressEnter.SetTex(&m_pressEnterTex);
 

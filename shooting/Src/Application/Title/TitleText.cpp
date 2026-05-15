@@ -36,5 +36,5 @@ void C_TitleText::Draw()
 	if (!m_flg)return;
 
 	SHADER.m_spriteShader.SetMatrix(m_mat);
-	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 610, 119), 1.0f);
+	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 649, 119), 1.0f);
 }
