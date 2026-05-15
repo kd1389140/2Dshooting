@@ -11,12 +11,13 @@
 #include "Result/GameOver.h"
 #include "Back/Back.h"
 #include "Score/Score.h"
+#include "Hp/PlayerHpBar/PlayerHpBar.h"
 
 class Scene
 {
 private:
 
-	int playerHp;
+	//int playerHp;
 	C_Player m_player;
 	KdTexture m_playerTex;
 
@@ -57,6 +58,9 @@ private:
 	C_Score m_score;
 	KdTexture m_scoreTex;
 
+	C_PlayerHpBar m_playerHpBar;
+	KdTexture m_playerHpBarTex;
+
 public:
 
 	// èâä˙ê›íË
@@ -89,6 +93,7 @@ public:
 	C_GameOver* GetGameOver() { return &m_gameover; }
 	C_Back* GetBack() { return &m_back; }
 	C_Score* GetScore() { return &m_score; }
+	C_PlayerHpBar* GetPlayerHpBar() { return &m_playerHpBar; }
 
 private:
 

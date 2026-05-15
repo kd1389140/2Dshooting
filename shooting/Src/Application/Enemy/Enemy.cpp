@@ -22,7 +22,8 @@ void C_Enemy::Update()
 	//画面外に出た時に画面内に戻す処理
 	if (m_pos.y <= -360.0f - 32.0f)
 	{
-		m_pos.y = 360.0f + 32.0f;
+		m_pos = { static_cast<float>(rand() % (640 + 640 - 32 + 1) - 640 + 32),360.0f + 32.0f };
+		m_hp = 3;
 	}
 
 	for (int i = 0; i < 30 ; ++i)

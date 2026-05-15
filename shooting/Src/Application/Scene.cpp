@@ -3,7 +3,7 @@
 
 void Scene::Draw2D()
 {
-	m_back.Draw();
+	//m_back.Draw();
 
 	for (int i = 0; i < pBulletNum; ++i)
 	{
@@ -24,6 +24,8 @@ void Scene::Draw2D()
 	m_player.Draw();
 
 	m_explosion.Draw();
+
+	m_playerHpBar.Draw();
 
 	m_result.Draw();
 
@@ -71,6 +73,8 @@ void Scene::Update()
 	m_gameover.Update();
 
 	m_back.Update();
+
+	m_playerHpBar.Update();
 }
 
 void Scene::Init()
@@ -101,18 +105,17 @@ void Scene::Init()
 	m_enemy2.Init();
 	m_enemy2.SetTex(&m_enemy2Tex);
 
-	m_bossTex.Load("Texture/enemy.png");
+	m_bossTex.Load("Texture/BossShip.png");
 	m_boss.Init();
 	m_boss.SetTex(&m_bossTex);
 
-	m_playerTex.Load("Texture/player.png");
+	m_playerTex.Load("Texture/playerShip.png");
 	m_player.Init();
 	m_player.SetTex(&m_playerTex);
 
 	m_explosionTex.Load("Texture/Red Explosion.png");
 	m_explosion.Init();
 	m_explosion.SetTex(&m_explosionTex);
-
 
 	m_titleTex.Load("Texture/Title.png");
 	m_title.Init();
@@ -134,6 +137,10 @@ void Scene::Init()
 	m_scoreTex.Load("Texture/BoldPixelsB.png");
 	m_score.Init();
 	m_score.SetTex(&m_scoreTex);
+
+	m_playerHpBarTex.Load("Texture/PlayerHpBar.png");
+	m_playerHpBar.Init();
+	m_playerHpBar.SetTex(&m_playerHpBarTex);
 }
 
 void Scene::Reset()
@@ -155,6 +162,7 @@ void Scene::Reset()
 	m_player.Init();
 	m_explosion.Init();
 	m_score.Init();
+	m_playerHpBar.Init();
 
 	//m_title.Init();
 	//m_result.Init();
@@ -177,6 +185,7 @@ void Scene::Release()
 	m_gameoverTex.Release();
 	m_backTex.Release();
 	m_scoreTex.Release();
+	m_playerHpBarTex.Release();
 }
 
 void Scene::ImGuiUpdate()

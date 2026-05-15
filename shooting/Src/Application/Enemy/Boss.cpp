@@ -2,11 +2,13 @@
 
 void C_Boss::Init()
 {
-	m_pos = { 200,300 };
+	m_pos = { 0,300 };
 	m_alive = true;
 	m_flg = false;
 	m_hp = 50;
-	m_scale = { 3,3 };
+	m_scale = { 0.5,0.5 };
+	
+	m_move.x = 2.5f;
 }
 
 void C_Boss::Update()
@@ -18,6 +20,19 @@ void C_Boss::Update()
 	//enemyBullet->SetShoot(true);
 
 	m_pos += m_move;
+
+	//m_move = { 0,0 };
+
+	//移動処理
+	if (m_pos.x < -640 + 32)
+	{
+		m_move.x = 2.5f;
+	}
+
+	if (m_pos.x > 640 - 32)
+	{
+		m_move.x = -2.5f;
+	}
 
 	for (int i = 0; i < 30; ++i)
 	{
@@ -60,7 +75,7 @@ void C_Boss::Draw()
 	if (!m_flg)return;
 
 	SHADER.m_spriteShader.SetMatrix(m_mat);
-	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 64, 64), 1.0f);
+	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 512, 512), 1.0f);
 }
 
 void C_Boss::Reset()

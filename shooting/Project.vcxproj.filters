@@ -73,6 +73,12 @@
     <Filter Include="Src\Application\Score">
       <UniqueIdentifier>{ed5e1c36-eaa7-443f-b60a-4d181edfd27f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Src\Application\Hp">
+      <UniqueIdentifier>{99cba380-f12d-4b10-99d6-c7ce8ae5e66a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Application\Hp\PlayerHpBar">
+      <UniqueIdentifier>{70542945-01cd-40bc-a77f-f022e6c5dc09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Pch.h">
@@ -204,6 +210,9 @@
     <ClInclude Include="Src\Application\Score\Score.h">
       <Filter>Src\Application\Score</Filter>
     </ClInclude>
+    <ClInclude Include="Src\Application\Hp\PlayerHpBar\PlayerHpBar.h">
+      <Filter>Src\Application\Hp\PlayerHpBar</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Pch.cpp">
@@ -304,6 +313,9 @@
     </ClCompile>
     <ClCompile Include="Src\Application\Score\Score.cpp">
       <Filter>Src\Application\Score</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Application\Hp\PlayerHpBar\PlayerHpBar.cpp">
+      <Filter>Src\Application\Hp\PlayerHpBar</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

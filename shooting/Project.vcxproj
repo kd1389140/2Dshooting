@@ -166,6 +166,7 @@
     <ClInclude Include="Src\Application\Enemy\Boss.h" />
     <ClInclude Include="Src\Application\Enemy\Enemy.h" />
     <ClInclude Include="Src\Application\Enemy\Enemy2.h" />
+    <ClInclude Include="Src\Application\Hp\PlayerHpBar\PlayerHpBar.h" />
     <ClInclude Include="Src\Application\Player\Player.h" />
     <ClInclude Include="Src\Application\Result\GameOver.h" />
     <ClInclude Include="Src\Application\Result\Result.h" />
@@ -203,6 +204,7 @@
     <ClCompile Include="Src\Application\Enemy\Boss.cpp" />
     <ClCompile Include="Src\Application\Enemy\Enemy.cpp" />
     <ClCompile Include="Src\Application\Enemy\Enemy2.cpp" />
+    <ClCompile Include="Src\Application\Hp\PlayerHpBar\PlayerHpBar.cpp" />
     <ClCompile Include="Src\Application\Player\Player.cpp" />
     <ClCompile Include="Src\Application\Result\GameOver.cpp" />
     <ClCompile Include="Src\Application\Result\Result.cpp" />

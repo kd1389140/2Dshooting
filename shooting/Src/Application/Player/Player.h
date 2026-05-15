@@ -20,8 +20,9 @@ public:
 
 	Math::Vector2 GetPos() { return m_pos; }
 	bool GetAlive() { return m_alive; }
-	bool GetHp() { return m_hp; }
 	bool GetHpFlg() { return m_hpFlg; }
+	int GetHp() { return m_hp; }
+	int GetMaxHp() { return m_maxHp; }
 
 private:
 
@@ -37,6 +38,8 @@ private:
 	Math::Matrix m_mat;		//合成行列
 	bool m_alive;			//生存フラグ
 	bool m_hpFlg;			//Hpが減ったかどうかのフラグ
+	bool m_nonDieFlg;		//デバック用無敵フラグ
 	int m_hp;				//体力
+	int m_maxHp;			//最大体力
 	int m_shotCnt = 0;		//弾を打つまでのカウント
 };

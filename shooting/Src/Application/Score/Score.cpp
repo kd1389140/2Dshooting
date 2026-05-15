@@ -3,9 +3,9 @@
 void C_Score::Init()
 {
 	//m_flg = true;
-	m_pos = { -610, 320};
+	m_pos = { -610, 330};
 	m_score = 0;
-	m_scale = { 5, 5 };
+	m_scale = { 3, 3 };
 }
 
 void C_Score::Update()

@@ -3,9 +3,11 @@
 void C_Player::Init()
 {
 	m_alive = true;
-	m_hp = 3;
+	m_hp = 5;
+	m_maxHp = 5;
 	m_pos = { 0, 0 };
-	m_scale = { 1.0f, 1.0f };
+	m_scale = { 0.5, 0.5 };
+	m_nonDieFlg = false;
 }
 
 void C_Player::Update()
@@ -43,13 +45,25 @@ void C_Player::Update()
 		m_hp--;
 	}
 
+	//デバック用
+	if (GetAsyncKeyState('P') & 0x8000)
+	{
+		m_nonDieFlg = true;
+	}
+	if(GetAsyncKeyState('O') & 0x8000)
+	{
+		m_nonDieFlg = false;
+	}
+	
 	//Hp0で死亡
 	if (m_hp <= 0)
 	{
-		m_alive = false;
-		SCENE.GetExplosion()->SetFlg(true);
+		if (!m_nonDieFlg)
+		{
+			m_alive = false;
+			SCENE.GetExplosion()->SetFlg(true);
+		}
 	}
-
 	
 	//発射までのカウント減少
 	if (--m_shotCnt < 0)m_shotCnt = 0;
@@ -65,7 +79,7 @@ void C_Player::Update()
 			playerBullet->SetShoot(true);
 
 			//発射間隔設定
-			m_shotCnt = 4;
+			m_shotCnt = 6;
 		}
 	}
 
@@ -151,5 +165,5 @@ void C_Player::Draw()
 	if (!m_alive)return;
 
 	SHADER.m_spriteShader.SetMatrix(m_mat);
-	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 64, 64), 1.0f);
+	SHADER.m_spriteShader.DrawTex(m_tex, Math::Rectangle(0, 0, 512, 512), 1.0f);
 }
